@@ -1,479 +1,1645 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>奥田萌莉 | Moeri Okuda</title>
-<meta name="description" content="奥田萌莉 — 理化学研究所 生命機能科学研究センター AI生物学研究チーム 特別研究員。コンピュータビジョンによる植物画像解析を研究。">
+
+<meta name="description"
+content="奥田萌莉 — 理化学研究所 生命機能科学研究センター AI生物学研究チーム 特別研究員。コンピュータビジョンによる植物画像解析を研究。">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --bg: #F6F4EC;
-    --bg-soft: #EFEDE1;
-    --ink: #262E22;
-    --muted: #6B7460;
-    --moss: #4F6B47;
-    --moss-deep: #3A5133;
-    --moss-soft: #93AF84;
-    --fabric-a: #E3D9BC;   /* warm linen wave */
-    --fabric-b: #C6D6BC;   /* sage wave */
-    --fabric-c: #AFC7CE;   /* pale water wave */
-    --line: #D8D3C2;
-    --max: 880px;
+
+/* =========================================================
+   BASIC
+========================================================= */
+
+:root{
+  --bg:#F6F4EC;
+  --bg-soft:#EFEDE1;
+  --ink:#262E22;
+  --muted:#6B7460;
+  --moss:#4F6B47;
+  --moss-deep:#3A5133;
+  --moss-soft:#93AF84;
+  --line:#D8D3C2;
+  --max:880px;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Karla',sans-serif;
+  font-size:16.5px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3{
+  font-family:'Fraunces',serif;
+  font-weight:500;
+  margin:0;
+  color:var(--ink);
+}
+
+a{
+  color:inherit;
+}
+
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 28px;
+}
+
+section{
+  padding:88px 0;
+}
+
+@media(max-width:640px){
+
+  section{
+    padding:64px 0;
   }
 
-  *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'Karla', sans-serif;
-    font-size:16.5px;
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    margin:0;
-    color:var(--ink);
-  }
-  a{ color:inherit; }
-  .wrap{ max-width:var(--max); margin:0 auto; padding:0 28px; }
-  section{ padding:88px 0; }
-  @media (max-width:640px){ section{ padding:64px 0; } }
+}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative;
-    overflow:hidden;
-    min-height:92vh;
-    display:flex;
-    align-items:center;
-    padding:120px 0 80px;
-  }
-  .wave-field{
-    position:absolute;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-  }
-  .wave-field svg{
-    position:absolute;
-    top:50%;
-    width:78%;
-    max-width:900px;
-    height:auto;
-    opacity:0.65;
-    transform-origin:center;
-  }
-  .wave-left{
-    left:-14%;
-    transform:translateY(-52%) rotate(-4deg);
-    animation:driftLeft 13s ease-in-out infinite alternate;
-  }
-  .wave-right{
-    right:-14%;
-    transform:translateY(-46%) rotate(4deg) scaleX(-1);
-    animation:driftRight 16s ease-in-out infinite alternate;
-  }
-  @keyframes driftLeft{
-    from{ transform:translateY(-52%) translateX(0) rotate(-4deg); }
-    to{ transform:translateY(-52%) translateX(26px) rotate(-2deg); }
-  }
-  @keyframes driftRight{
-    from{ transform:translateY(-46%) translateX(0) rotate(4deg) scaleX(-1); }
-    to{ transform:translateY(-46%) translateX(-30px) rotate(2deg) scaleX(-1); }
-  }
-  @media (prefers-reduced-motion: reduce){
-    .wave-left, .wave-right{ animation:none; }
-  }
 
-  .hero-content{ position:relative; z-index:1; max-width:640px; }
-  .hero .eyebrow-photo{
-    display:none;
-  }
-  .hero h1{
-    font-size:clamp(2.4rem, 5.4vw, 3.6rem);
-    letter-spacing:0.2px;
-    line-height:1.15;
-  }
-  .hero .romaji{
-    display:block;
-    font-family:'Fraunces', serif;
-    font-weight:400;
-    font-style:italic;
-    font-size:clamp(1rem, 2vw, 1.25rem);
-    color:var(--muted);
-    margin-top:6px;
-  }
-  .hero .role{
-    margin-top:22px;
-    font-size:1.05rem;
-    color:var(--moss-deep);
-    font-weight:600;
-    max-width:30ch;
-  }
-  .hero .tagline{
-    margin-top:14px;
-    font-size:1.08rem;
-    color:var(--ink);
-    max-width:38ch;
-  }
-  .hero-actions{
-    margin-top:34px;
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-  }
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:13px 26px;
-    border-radius:999px;
-    font-family:'Karla', sans-serif;
-    font-weight:600;
-    font-size:0.95rem;
-    text-decoration:none;
-    transition:transform .18s ease, box-shadow .18s ease;
-    border:1.5px solid transparent;
-  }
-  .btn:hover{ transform:translateY(-2px); }
-  .btn-primary{
-    background:var(--moss);
-    color:#FBFAF4;
-    box-shadow:0 8px 20px -8px rgba(79,107,71,0.55);
-  }
-  .btn-primary:hover{ background:var(--moss-deep); }
-  .btn-outline{
-    background:transparent;
-    border-color:var(--moss-soft);
-    color:var(--moss-deep);
-  }
-  .btn-outline:hover{ border-color:var(--moss); background:rgba(147,175,132,0.12); }
+/* =========================================================
+   HERO
+========================================================= */
 
-  /* ---------- SECTION HEADS ---------- */
-  .section-head{
-    display:flex;
-    align-items:baseline;
-    gap:18px;
-    margin-bottom:34px;
-  }
-  .section-head h2{ font-size:1.7rem; white-space:nowrap; }
-  .section-head .rule{
-    flex:1;
-    height:1px;
-    background:var(--line);
-  }
+.hero{
 
-  /* ---------- ABOUT ---------- */
-  #about{ background:var(--bg-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  position:relative;
+
+  overflow:hidden;
+
+  min-height:92vh;
+
+  display:flex;
+
+  align-items:center;
+
+  padding:120px 0 80px;
+
+  background:#304632;
+
+  color:white;
+
+}
+
+
+/* =========================================================
+   HERO VIDEO
+========================================================= */
+
+.hero-video{
+
+  position:absolute;
+
+  inset:0;
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  z-index:0;
+
+}
+
+
+/* =========================================================
+   VIDEO OVERLAY
+========================================================= */
+
+.hero-overlay{
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:1;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      rgba(30,48,34,0.58),
+      rgba(30,48,34,0.20),
+      rgba(30,48,34,0.30)
+    );
+
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content{
+
+  position:relative;
+
+  z-index:2;
+
+  max-width:640px;
+
+}
+
+.hero h1{
+
+  color:#ffffff;
+
+  font-size:clamp(
+    2.4rem,
+    5.4vw,
+    3.6rem
+  );
+
+  letter-spacing:.2px;
+
+  line-height:1.15;
+
+}
+
+.hero .romaji{
+
+  display:block;
+
+  font-family:'Fraunces',serif;
+
+  font-weight:400;
+
+  font-style:italic;
+
+  font-size:clamp(
+    1rem,
+    2vw,
+    1.25rem
+  );
+
+  color:#E4EBDD;
+
+  margin-top:6px;
+
+}
+
+.hero .role{
+
+  margin-top:22px;
+
+  font-size:1.05rem;
+
+  color:#F0F3E9;
+
+  font-weight:600;
+
+  max-width:30ch;
+
+}
+
+.hero .tagline{
+
+  margin-top:14px;
+
+  font-size:1.08rem;
+
+  color:#F7F7F0;
+
+  max-width:38ch;
+
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.hero-actions{
+
+  margin-top:34px;
+
+  display:flex;
+
+  gap:14px;
+
+  flex-wrap:wrap;
+
+}
+
+.btn{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  padding:13px 26px;
+
+  border-radius:999px;
+
+  font-family:'Karla',sans-serif;
+
+  font-weight:600;
+
+  font-size:.95rem;
+
+  text-decoration:none;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+
+  border:1.5px solid transparent;
+
+}
+
+.btn:hover{
+
+  transform:translateY(-2px);
+
+}
+
+.btn-primary{
+
+  background:var(--moss);
+
+  color:#FBFAF4;
+
+  box-shadow:
+    0 8px 20px -8px
+    rgba(79,107,71,.55);
+
+}
+
+.btn-primary:hover{
+
+  background:var(--moss-deep);
+
+}
+
+.btn-outline{
+
+  background:rgba(255,255,255,.10);
+
+  border-color:rgba(255,255,255,.70);
+
+  color:white;
+
+  backdrop-filter:blur(5px);
+
+}
+
+.btn-outline:hover{
+
+  background:white;
+
+  color:var(--moss-deep);
+
+}
+
+
+/* =========================================================
+   SECTION HEAD
+========================================================= */
+
+.section-head{
+
+  display:flex;
+
+  align-items:baseline;
+
+  gap:18px;
+
+  margin-bottom:34px;
+
+}
+
+.section-head h2{
+
+  font-size:1.7rem;
+
+  white-space:nowrap;
+
+}
+
+.section-head .rule{
+
+  flex:1;
+
+  height:1px;
+
+  background:var(--line);
+
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+#about{
+
+  background:var(--bg-soft);
+
+  border-top:1px solid var(--line);
+
+  border-bottom:1px solid var(--line);
+
+}
+
+.about-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    1.1fr .9fr;
+
+  gap:56px;
+
+  align-items:center;
+
+}
+
+@media(max-width:760px){
+
   .about-grid{
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:56px;
-    align-items:center;
-  }
-  @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; } }
-  .about-text p{ margin:0 0 16px; color:var(--ink); font-size:1.02rem; }
-  .chips{ display:flex; flex-wrap:wrap; gap:9px; margin-top:22px; }
-  .chip{
-    font-size:0.85rem;
-    color:var(--moss-deep);
-    background:#E4EEDF;
-    border-radius:7px;
-    padding:6px 13px;
-    font-weight:600;
+
+    grid-template-columns:1fr;
+
   }
 
-  /* organic illustration: duckweed-on-water motif, echoes the wave theme */
-  .water-art{
-    position:relative;
-    min-height:320px;
-    aspect-ratio:1/1;
-    border-radius:28px;
-    background:linear-gradient(165deg, #DCE7D6 0%, #CBDCCB 55%, #B9D0CE 100%);
-    overflow:hidden;
-  }
-  .water-art svg{ position:absolute; inset:0; width:100%; height:100%; }
+}
 
-  /* ---------- TIMELINE ---------- */
-  .timeline{ position:relative; padding-left:28px; }
-  .timeline::before{
-    content:"";
-    position:absolute;
-    left:5px; top:6px; bottom:6px;
-    width:1.5px;
-    background:var(--line);
-  }
-  .t-item{ position:relative; padding-bottom:34px; }
-  .t-item:last-child{ padding-bottom:0; }
-  .t-item::before{
-    content:"";
-    position:absolute;
-    left:-28px; top:5px;
-    width:11px; height:11px;
-    border-radius:50%;
-    background:var(--bg);
-    border:2.5px solid var(--moss);
-  }
-  .t-date{ font-size:0.85rem; color:var(--muted); font-weight:600; margin-bottom:4px; }
-  .t-title{ font-weight:700; font-size:1.03rem; }
-  .t-sub{ color:var(--muted); font-size:0.94rem; margin-top:3px; }
+.about-text p{
 
-  /* ---------- AWARDS ---------- */
-  .awards-list{ display:flex; flex-direction:column; gap:22px; }
-  .award{
-    border-left:2.5px solid var(--moss-soft);
-    padding-left:20px;
-  }
-  .award .a-date{ font-size:0.85rem; color:var(--muted); font-weight:600; }
-  .award .a-title{ font-weight:700; font-size:1.05rem; margin-top:2px; }
-  .award .a-desc{ color:var(--muted); font-size:0.94rem; margin-top:3px; }
+  margin:0 0 16px;
 
-  /* ---------- RESEARCH CTA ---------- */
-  #research .panel{
-    position:relative;
-    background:var(--moss-deep);
-    color:#F3F1E6;
-    border-radius:24px;
-    padding:56px 48px;
-    overflow:hidden;
-  }
-  #research .panel::before, #research .panel::after{
-    content:"";
-    position:absolute;
-    width:340px; height:340px;
-    border-radius:50%;
-    opacity:0.18;
-  }
-  #research .panel::before{ background:var(--fabric-c); top:-140px; left:-120px; }
-  #research .panel::after{ background:var(--fabric-a); bottom:-160px; right:-110px; }
-  #research .panel-inner{ position:relative; z-index:1; max-width:520px; }
-  #research h2{ color:#FBFAF4; font-size:1.7rem; }
-  #research p{ color:#DCE3D2; margin-top:14px; font-size:1.02rem; }
-  #research .stats{ display:flex; gap:32px; margin-top:26px; }
-  #research .stat-num{ font-family:'Fraunces', serif; font-size:2.1rem; color:#FBFAF4; }
-  #research .stat-label{ font-size:0.82rem; color:#C7D2BB; margin-top:2px; }
-  #research .panel .btn-primary{ margin-top:30px; background:#F3F1E6; color:var(--moss-deep); box-shadow:none; }
-  #research .panel .btn-primary:hover{ background:#fff; }
+  color:var(--ink);
 
-  /* ---------- CONTACT ---------- */
-  #contact{ background:var(--bg-soft); border-top:1px solid var(--line); }
+  font-size:1.02rem;
+
+}
+
+.chips{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:9px;
+
+  margin-top:22px;
+
+}
+
+.chip{
+
+  font-size:.85rem;
+
+  color:var(--moss-deep);
+
+  background:#E4EEDF;
+
+  border-radius:7px;
+
+  padding:6px 13px;
+
+  font-weight:600;
+
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.profile-image{
+
+  position:relative;
+
+  width:100%;
+
+  aspect-ratio:1 / 1;
+
+  border-radius:28px;
+
+  overflow:hidden;
+
+  background:#DCE7D6;
+
+}
+
+.profile-image img{
+
+  width:100%;
+
+  height:100%;
+
+  display:block;
+
+  object-fit:cover;
+
+  object-position:center;
+
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline{
+
+  position:relative;
+
+  padding-left:28px;
+
+}
+
+.timeline::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:5px;
+
+  top:6px;
+
+  bottom:6px;
+
+  width:1.5px;
+
+  background:var(--line);
+
+}
+
+.t-item{
+
+  position:relative;
+
+  padding-bottom:34px;
+
+}
+
+.t-item:last-child{
+
+  padding-bottom:0;
+
+}
+
+.t-item::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:-28px;
+
+  top:5px;
+
+  width:11px;
+
+  height:11px;
+
+  border-radius:50%;
+
+  background:var(--bg);
+
+  border:2.5px solid var(--moss);
+
+}
+
+.t-date{
+
+  font-size:.85rem;
+
+  color:var(--muted);
+
+  font-weight:600;
+
+  margin-bottom:4px;
+
+}
+
+.t-title{
+
+  font-weight:700;
+
+  font-size:1.03rem;
+
+}
+
+.t-sub{
+
+  color:var(--muted);
+
+  font-size:.94rem;
+
+  margin-top:3px;
+
+}
+
+
+/* =========================================================
+   AWARDS
+========================================================= */
+
+.awards-list{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:22px;
+
+}
+
+.award{
+
+  border-left:2.5px solid var(--moss-soft);
+
+  padding-left:20px;
+
+}
+
+.award .a-date{
+
+  font-size:.85rem;
+
+  color:var(--muted);
+
+  font-weight:600;
+
+}
+
+.award .a-title{
+
+  font-weight:700;
+
+  font-size:1.05rem;
+
+  margin-top:2px;
+
+}
+
+.award .a-desc{
+
+  color:var(--muted);
+
+  font-size:.94rem;
+
+  margin-top:3px;
+
+}
+
+
+/* =========================================================
+   RESEARCH
+========================================================= */
+
+#research .panel{
+
+  position:relative;
+
+  background:var(--moss-deep);
+
+  color:#F3F1E6;
+
+  border-radius:24px;
+
+  padding:56px 48px;
+
+  overflow:hidden;
+
+}
+
+#research .panel::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:340px;
+
+  height:340px;
+
+  border-radius:50%;
+
+  background:#AFC7CE;
+
+  opacity:.18;
+
+  top:-140px;
+
+  left:-120px;
+
+}
+
+#research .panel::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:340px;
+
+  height:340px;
+
+  border-radius:50%;
+
+  background:#E3D9BC;
+
+  opacity:.18;
+
+  bottom:-160px;
+
+  right:-110px;
+
+}
+
+#research .panel-inner{
+
+  position:relative;
+
+  z-index:1;
+
+  max-width:520px;
+
+}
+
+#research h2{
+
+  color:#FBFAF4;
+
+  font-size:1.7rem;
+
+}
+
+#research p{
+
+  color:#DCE3D2;
+
+  margin-top:14px;
+
+  font-size:1.02rem;
+
+}
+
+#research .stats{
+
+  display:flex;
+
+  gap:32px;
+
+  margin-top:26px;
+
+  flex-wrap:wrap;
+
+}
+
+#research .stat-num{
+
+  font-family:'Fraunces',serif;
+
+  font-size:2.1rem;
+
+  color:#FBFAF4;
+
+}
+
+#research .stat-label{
+
+  font-size:.82rem;
+
+  color:#C7D2BB;
+
+  margin-top:2px;
+
+}
+
+#research .panel .btn-primary{
+
+  margin-top:30px;
+
+  background:#F3F1E6;
+
+  color:var(--moss-deep);
+
+  box-shadow:none;
+
+}
+
+#research .panel .btn-primary:hover{
+
+  background:#fff;
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+#contact{
+
+  background:var(--bg-soft);
+
+  border-top:1px solid var(--line);
+
+}
+
+.contact-grid{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:40px;
+
+}
+
+@media(max-width:640px){
+
   .contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-  }
-  @media (max-width:640px){ .contact-grid{ grid-template-columns:1fr; } }
-  .contact-item{ padding:20px 0; border-bottom:1px solid var(--line); }
-  .contact-item .c-label{ font-size:0.82rem; color:var(--muted); font-weight:600; margin-bottom:6px; }
-  .contact-item a{ text-decoration:none; font-size:1.02rem; font-weight:600; color:var(--ink); }
-  .contact-item a:hover{ color:var(--moss-deep); }
-  .cv-block{
-    margin-top:40px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-    flex-wrap:wrap;
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:26px 30px;
-  }
-  .cv-block .cv-text .cv-title{ font-weight:700; font-size:1.08rem; }
-  .cv-block .cv-text .cv-sub{ color:var(--muted); font-size:0.9rem; margin-top:3px; }
 
-  footer{
-    padding:36px 0 46px;
-    text-align:center;
-    color:var(--muted);
-    font-size:0.85rem;
+    grid-template-columns:1fr;
+
   }
+
+}
+
+.contact-item{
+
+  padding:20px 0;
+
+  border-bottom:1px solid var(--line);
+
+}
+
+.contact-item .c-label{
+
+  font-size:.82rem;
+
+  color:var(--muted);
+
+  font-weight:600;
+
+  margin-bottom:6px;
+
+}
+
+.contact-item a{
+
+  text-decoration:none;
+
+  font-size:1.02rem;
+
+  font-weight:600;
+
+  color:var(--ink);
+
+}
+
+.contact-item a:hover{
+
+  color:var(--moss-deep);
+
+}
+
+
+/* =========================================================
+   CV
+========================================================= */
+
+.cv-block{
+
+  margin-top:40px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+  flex-wrap:wrap;
+
+  background:#fff;
+
+  border:1px solid var(--line);
+
+  border-radius:18px;
+
+  padding:26px 30px;
+
+}
+
+.cv-block .cv-text .cv-title{
+
+  font-weight:700;
+
+  font-size:1.08rem;
+
+}
+
+.cv-block .cv-text .cv-sub{
+
+  color:var(--muted);
+
+  font-size:.9rem;
+
+  margin-top:3px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+  padding:36px 0 46px;
+
+  text-align:center;
+
+  color:var(--muted);
+
+  font-size:.85rem;
+
+}
+
+
+/* =========================================================
+   MOBILE HERO
+========================================================= */
+
+@media(max-width:640px){
+
+  .hero{
+
+    min-height:90vh;
+
+    padding:
+      110px 0 70px;
+
+  }
+
+  .hero-video{
+
+    object-position:center center;
+
+  }
+
+  .hero-overlay{
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(30,48,34,.68),
+        rgba(30,48,34,.38)
+      );
+
+  }
+
+  .hero-actions{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  .hero-video{
+
+    display:none;
+
+  }
+
+  .hero{
+
+    background:
+      linear-gradient(
+        135deg,
+        #304632,
+        #4F6B47
+      );
+
+  }
+
+}
+
 </style>
+
 </head>
+
 <body>
 
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <header class="hero">
-  <div class="wave-field" aria-hidden="true">
-    <svg class="wave-left" viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,180 C120,80 180,300 300,220 C420,140 460,320 600,260 C700,220 760,120 900,180 L900,400 L0,400 Z"
-            fill="var(--fabric-b)"/>
-      <path d="M0,230 C140,150 220,340 360,260 C480,200 540,360 680,300 C780,260 820,180 900,230 L900,400 L0,400 Z"
-            fill="var(--fabric-a)" opacity="0.75"/>
-    </svg>
-    <svg class="wave-right" viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,180 C120,80 180,300 300,220 C420,140 460,320 600,260 C700,220 760,120 900,180 L900,400 L0,400 Z"
-            fill="var(--fabric-c)"/>
-      <path d="M0,230 C140,150 220,340 360,260 C480,200 540,360 680,300 C780,260 820,180 900,230 L900,400 L0,400 Z"
-            fill="var(--fabric-b)" opacity="0.7"/>
-    </svg>
+
+  <!--
+    1枚目の画像・動画
+
+    このHTMLと同じフォルダに
+
+    hero.mp4
+
+    を置いてください。
+  -->
+
+<video
+ class="hero-video"
+ autoplay
+ muted
+ loop
+ playsinline
+ preload="auto">
+
+```
+<source
+  src="./hero.mp4"
+  type="video/mp4">
+```
+
+  </video>
+
+  <!-- VIDEO OVERLAY -->
+
+  <div
+    class="hero-overlay"
+    aria-hidden="true">
   </div>
 
+  <!-- HERO CONTENT -->
+
   <div class="wrap hero-content">
-    <h1>奥田 萌莉<span class="romaji">Moeri Okuda</span></h1>
-    <p class="role">理化学研究所 生命機能科学研究センター<br>AI生物学研究チーム　特別研究員</p>
-    <p class="tagline">画像1枚から、植物の生育のリズムを読み解く。コンピュータビジョンで“見えない変化”に輪郭を与える研究をしています。</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="./CV_Moeri_Okuda.pdf" download>CVをダウンロード</a>
-      <a class="btn btn-outline" href="https://researchmap.jp/moeriokuda" target="_blank" rel="noopener">researchmapを見る</a>
-    </div>
+
+```
+<h1>
+
+  奥田 萌莉
+
+  <span class="romaji">
+    Moeri Okuda
+  </span>
+
+</h1>
+
+
+<p class="role">
+
+  理化学研究所
+  生命機能科学研究センター<br>
+
+  AI生物学研究チーム
+  特別研究員
+
+</p>
+
+
+<p class="tagline">
+
+  画像1枚から、植物の生育のリズムを読み解く。
+  コンピュータビジョンで
+  “見えない変化”に輪郭を与える研究をしています。
+
+</p>
+
+
+<div class="hero-actions">
+
+
+  <a
+    class="btn btn-primary"
+    href="./CV_Moeri_Okuda.pdf"
+    download>
+
+    CVをダウンロード
+
+  </a>
+
+
+  <a
+    class="btn btn-outline"
+    href="https://researchmap.jp/moeriokuda"
+    target="_blank"
+    rel="noopener">
+
+    researchmapを見る
+
+  </a>
+
+
+</div>
+```
+
   </div>
+
 </header>
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
 <main>
 
-  <section id="about">
-    <div class="wrap">
-      <div class="about-grid">
-        <div class="about-text">
-          <div class="section-head"><h2>Profile</h2><div class="rule"></div></div>
-          <p>博士課程2年生の時より兵庫県立大学工学部にて助教を拝命し、画像処理・データサイエンスの授業を担当してきました。
-            その後、博士（情報科学）を取得し、2026年8月より理化学研究所 生命機能科学研究センター AI生物学研究チームに特別研究員として所属しています。</p>
-            <p>ウキクサ科植物や小松菜を対象に、専門家の観察眼をモデルの特徴表現に組み込む手法を研究し、限られたデータでも頑健に働く画像認識の仕組みづくりに取り組んでいます。</p>
-          <div class="chips">
-            <span class="chip">コンピュータビジョン</span>
-            <span class="chip">特徴表現学習</span>
-            <span class="chip">植物画像解析</span>
-            <span class="chip">ウキクサ科植物</span>
-            <span class="chip">小松菜</span>
-          </div>
-        </div>
-        <div class="water-art">
-          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="120" cy="130" r="34" fill="#7FA36B" opacity="0.75"/>
-            <circle cx="205" cy="100" r="20" fill="#6E9A5C" opacity="0.7"/>
-            <circle cx="260" cy="170" r="46" fill="#89B075" opacity="0.7"/>
-            <circle cx="150" cy="220" r="26" fill="#5F8C4E" opacity="0.65"/>
-            <circle cx="90" cy="260" r="16" fill="#7FA36B" opacity="0.6"/>
-            <circle cx="290" cy="260" r="22" fill="#6E9A5C" opacity="0.6"/>
-            <path d="M0,300 C60,280 100,320 160,300 C220,280 260,320 320,300 C360,286 380,300 400,296 L400,400 L0,400 Z" fill="#A9C7C6" opacity="0.55"/>
-            <path d="M0,330 C70,315 110,345 180,330 C240,317 280,346 340,330 C370,322 390,332 400,328 L400,400 L0,400 Z" fill="#8FB6B4" opacity="0.5"/>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
+<section id="about">
 
-  <section id="journey">
-    <div class="wrap">
-      <div class="section-head"><h2>Career &amp; Education</h2><div class="rule"></div></div>
-      <div class="timeline">
-        <div class="t-item">
-          <div class="t-date">2026.8 – 現在</div>
-          <div class="t-title">理化学研究所　生命機能科学研究センター</div>
-          <div class="t-sub">AI生物学研究チーム　特別研究員</div>
-        </div>
-        <div class="t-item">
-          <div class="t-date">2026.7</div>
-          <div class="t-title">理化学研究所　生命機能科学研究センター</div>
-          <div class="t-sub">マルチモーダルAI基盤技術研究チーム　客員研究員</div>
-        </div>
-        <div class="t-item">
-          <div class="t-date">2024.4 – 2026.7</div>
-          <div class="t-title">兵庫県立大学　工学部／大学院工学研究科</div>
-          <div class="t-sub">助教</div>
-        </div>
-        <div class="t-item">
-          <div class="t-date">2023.4 – 2026.3</div>
-          <div class="t-title">兵庫県立大学　大学院情報科学研究科</div>
-          <div class="t-sub">博士後期課程　博士（情報科学）</div>
-        </div>
-        <div class="t-item">
-          <div class="t-date">2021.4 – 2023.3</div>
-          <div class="t-title">兵庫県立大学　大学院情報科学研究科</div>
-          <div class="t-sub">博士前期課程　修士（情報科学）</div>
-        </div>
-        <div class="t-item">
-          <div class="t-date">2017.4 – 2021.3</div>
-          <div class="t-title">神戸女学院大学　人間科学部</div>
-          <div class="t-sub">環境・バイオサイエンス学科　学士（人間科学）</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="wrap">
 
-  <section id="awards">
-    <div class="wrap">
-      <div class="section-head"><h2>Awards</h2><div class="rule"></div></div>
-      <div class="awards-list">
-        <div class="award">
-          <div class="a-date">2023.3</div>
-          <div class="a-title">学生プレゼンテーション賞</div>
-          <div class="a-desc">「画像認識によるウキクサ科植物の表面積と総枚数の推定」— 日本データベース学会 第15回データ工学と情報マネジメントに関するフォーラム</div>
-        </div>
-        <div class="award">
-          <div class="a-date">2023.1</div>
-          <div class="a-title">上河賞</div>
-          <div class="a-desc">「形・葉脈の特徴に着目した樹葉画像の深層学習に基づく分類」— 兵庫県立大学</div>
-        </div>
-        <div class="award">
-          <div class="a-date">2021.9</div>
-          <div class="a-title">学生奨励賞</div>
-          <div class="a-desc">「多様な特徴抽出に基づく葉の画像分類」— 情報処理学会データベースシステム研究会 ほか</div>
-        </div>
-      </div>
-    </div>
-  </section>
+```
+<div class="about-grid">
 
-  <section id="research">
-    <div class="wrap">
-      <div class="panel">
-        <div class="panel-inner">
-          <h2>Publications</h2>
-          <p>査読付き論文11本、研究発表・技報17件を発表。最新の業績と全リストはresearchmapで公開しています。</p>
-          <div class="stats">
-            <div><div class="stat-num">11</div><div class="stat-label">査読付き論文</div></div>
-            <div><div class="stat-num">17</div><div class="stat-label">研究発表・技報</div></div>
-            <div><div class="stat-num">3</div><div class="stat-label">受賞</div></div>
-          </div>
-          <a class="btn btn-primary" href="https://researchmap.jp/moeriokuda" target="_blank" rel="noopener">researchmapで全業績を見る</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="contact">
-    <div class="wrap">
-      <div class="section-head"><h2>Contact</h2><div class="rule"></div></div>
-      <div class="contact-grid">
-        <div class="contact-item">
-          <div class="c-label">Email</div>
-          <a href="mailto:moeri.okuda@riken.jp">moeri.okuda@riken.jp</a>
+  <!-- TEXT -->
+
+  <div class="about-text">
+
+    <div class="section-head">
+
+      <h2>
+        Profile
+      </h2>
+
+      <div class="rule"></div>
+
+    </div>
+
+
+    <p>
+
+      博士課程2年生の時より兵庫県立大学工学部にて
+      助教を拝命し、画像処理・データサイエンスの
+      授業を担当してきました。
+
+      その後、博士（情報科学）を取得し、
+      2026年8月より理化学研究所
+      生命機能科学研究センター
+      AI生物学研究チームに
+      特別研究員として所属しています。
+
+    </p>
+
+
+    <p>
+
+      ウキクサ科植物や小松菜を対象に、
+      専門家の観察眼をモデルの特徴表現に
+      組み込む手法を研究し、
+      限られたデータでも頑健に働く
+      画像認識の仕組みづくりに取り組んでいます。
+
+    </p>
+
+
+    <div class="chips">
+
+      <span class="chip">
+        コンピュータビジョン
+      </span>
+
+      <span class="chip">
+        特徴表現学習
+      </span>
+
+      <span class="chip">
+        植物画像解析
+      </span>
+
+      <span class="chip">
+        ウキクサ科植物
+      </span>
+
+      <span class="chip">
+        小松菜
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!--
+    2枚目の画像
+
+    このHTMLと同じフォルダに
+
+    profile.jpg
+
+    を置いてください。
+  -->
+
+  <div class="profile-image">
+
+    <img
+      src="./profile.jpg"
+      alt="奥田萌莉の研究イメージ"
+      loading="lazy">
+
+  </div>
+
+
+</div>
+```
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     CAREER & EDUCATION
+===================================================== -->
+
+<section id="journey">
+
+  <div class="wrap">
+
+```
+<div class="section-head">
+
+  <h2>
+    Career &amp; Education
+  </h2>
+
+  <div class="rule"></div>
+
+</div>
+
+
+<div class="timeline">
+
+
+  <div class="t-item">
+
+    <div class="t-date">
+      2026.8 – 現在
+    </div>
+
+    <div class="t-title">
+      理化学研究所　生命機能科学研究センター
+    </div>
+
+    <div class="t-sub">
+      AI生物学研究チーム　特別研究員
+    </div>
+
+  </div>
+
+
+  <div class="t-item">
+
+    <div class="t-date">
+      2026.7
+    </div>
+
+    <div class="t-title">
+      理化学研究所　生命機能科学研究センター
+    </div>
+
+    <div class="t-sub">
+      マルチモーダルAI基盤技術研究チーム　客員研究員
+    </div>
+
+  </div>
+
+
+  <div class="t-item">
+
+    <div class="t-date">
+      2024.4 – 2026.7
+    </div>
+
+    <div class="t-title">
+      兵庫県立大学　工学部／大学院工学研究科
+    </div>
+
+    <div class="t-sub">
+      助教
+    </div>
+
+  </div>
+
+
+  <div class="t-item">
+
+    <div class="t-date">
+      2023.4 – 2026.3
+    </div>
+
+    <div class="t-title">
+      兵庫県立大学　大学院情報科学研究科
+    </div>
+
+    <div class="t-sub">
+      博士後期課程　博士（情報科学）
+    </div>
+
+  </div>
+
+
+  <div class="t-item">
+
+    <div class="t-date">
+      2021.4 – 2023.3
+    </div>
+
+    <div class="t-title">
+      兵庫県立大学　大学院情報科学研究科
+    </div>
+
+    <div class="t-sub">
+      博士前期課程　修士（情報科学）
+    </div>
+
+  </div>
+
+
+  <div class="t-item">
+
+    <div class="t-date">
+      2017.4 – 2021.3
+    </div>
+
+    <div class="t-title">
+      神戸女学院大学　人間科学部
+    </div>
+
+    <div class="t-sub">
+      環境・バイオサイエンス学科　学士（人間科学）
+    </div>
+
+  </div>
+
+
+</div>
+```
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     AWARDS
+===================================================== -->
+
+<section id="awards">
+
+  <div class="wrap">
+
+```
+<div class="section-head">
+
+  <h2>
+    Awards
+  </h2>
+
+  <div class="rule"></div>
+
+</div>
+
+
+<div class="awards-list">
+
+
+  <div class="award">
+
+    <div class="a-date">
+      2023.3
+    </div>
+
+    <div class="a-title">
+      学生プレゼンテーション賞
+    </div>
+
+    <div class="a-desc">
+
+      「画像認識によるウキクサ科植物の表面積と総枚数の推定」
+      — 日本データベース学会
+      第15回データ工学と情報マネジメントに関するフォーラム
+
+    </div>
+
+  </div>
+
+
+  <div class="award">
+
+    <div class="a-date">
+      2023.1
+    </div>
+
+    <div class="a-title">
+      上河賞
+    </div>
+
+    <div class="a-desc">
+
+      「形・葉脈の特徴に着目した樹葉画像の深層学習に基づく分類」
+      — 兵庫県立大学
+
+    </div>
+
+  </div>
+
+
+  <div class="award">
+
+    <div class="a-date">
+      2021.9
+    </div>
+
+    <div class="a-title">
+      学生奨励賞
+    </div>
+
+    <div class="a-desc">
+
+      「多様な特徴抽出に基づく葉の画像分類」
+      — 情報処理学会データベースシステム研究会 ほか
+
+    </div>
+
+  </div>
+
+
+</div>
+```
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     PUBLICATIONS
+===================================================== -->
+
+<section id="research">
+
+  <div class="wrap">
+
+```
+<div class="panel">
+
+  <div class="panel-inner">
+
+    <h2>
+      Publications
+    </h2>
+
+
+    <p>
+
+      査読付き論文11本、
+      研究発表・技報17件を発表。
+      最新の業績と全リストはresearchmapで公開しています。
+
+    </p>
+
+
+    <div class="stats">
+
+
+      <div>
+
+        <div class="stat-num">
+          11
         </div>
-        <div class="contact-item">
-          <div class="c-label">ORCID</div>
-          <a href="https://orcid.org/0009-0000-7856-7830" target="_blank" rel="noopener">0009-0000-7856-7830</a>
+
+        <div class="stat-label">
+          査読付き論文
         </div>
-        <div class="contact-item">
-          <div class="c-label">researchmap</div>
-          <a href="https://researchmap.jp/moeriokuda" target="_blank" rel="noopener">researchmap.jp/moeriokuda</a>
-        </div>
-        <div class="contact-item">
-          <div class="c-label">所属</div>
-          <a href="https://www.riken.jp/" target="_blank" rel="noopener">理化学研究所</a>
-        </div>
+
       </div>
 
-      <div class="cv-block">
-        <div class="cv-text">
-          <div class="cv-title">CV（履歴書・研究業績）</div>
-          <div class="cv-sub">学歴・職歴・受賞・主要論文をまとめたPDFです</div>
+
+      <div>
+
+        <div class="stat-num">
+          17
         </div>
-        <a class="btn btn-primary" href="./CV_Moeri_Okuda.pdf" download>CVをダウンロード</a>
+
+        <div class="stat-label">
+          研究発表・技報
+        </div>
+
       </div>
+
+
+      <div>
+
+        <div class="stat-num">
+          3
+        </div>
+
+        <div class="stat-label">
+          受賞
+        </div>
+
+      </div>
+
+
     </div>
-  </section>
+
+
+    <a
+      class="btn btn-primary"
+      href="https://researchmap.jp/moeriokuda"
+      target="_blank"
+      rel="noopener">
+
+      researchmapで全業績を見る
+
+    </a>
+
+
+  </div>
+
+</div>
+```
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact">
+
+  <div class="wrap">
+
+```
+<div class="section-head">
+
+  <h2>
+    Contact
+  </h2>
+
+  <div class="rule"></div>
+
+</div>
+
+
+<div class="contact-grid">
+
+
+  <div class="contact-item">
+
+    <div class="c-label">
+      Email
+    </div>
+
+    <a href="mailto:moeri.okuda@riken.jp">
+      moeri.okuda@riken.jp
+    </a>
+
+  </div>
+
+
+  <div class="contact-item">
+
+    <div class="c-label">
+      ORCID
+    </div>
+
+    <a
+      href="https://orcid.org/0009-0000-7856-7830"
+      target="_blank"
+      rel="noopener">
+
+      0009-0000-7856-7830
+
+    </a>
+
+  </div>
+
+
+  <div class="contact-item">
+
+    <div class="c-label">
+      researchmap
+    </div>
+
+    <a
+      href="https://researchmap.jp/moeriokuda"
+      target="_blank"
+      rel="noopener">
+
+      researchmap.jp/moeriokuda
+
+    </a>
+
+  </div>
+
+
+  <div class="contact-item">
+
+    <div class="c-label">
+      所属
+    </div>
+
+    <a
+      href="https://www.riken.jp/"
+      target="_blank"
+      rel="noopener">
+
+      理化学研究所
+
+    </a>
+
+  </div>
+
+
+</div>
+
+
+<!-- =================================================
+     CV DOWNLOAD
+================================================= -->
+
+<div class="cv-block">
+
+
+  <div class="cv-text">
+
+    <div class="cv-title">
+      CV（履歴書・研究業績）
+    </div>
+
+    <div class="cv-sub">
+
+      学歴・職歴・受賞・主要論文をまとめたPDFです
+
+    </div>
+
+  </div>
+
+
+  <a
+    class="btn btn-primary"
+    href="./CV_Moeri_Okuda.pdf"
+    download>
+
+    CVをダウンロード
+
+  </a>
+
+
+</div>
+```
+
+  </div>
+
+</section>
 
 </main>
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
-  &copy; 2026 Moeri Okuda
+
+© 2026 Moeri Okuda All rights reserved.
+
 </footer>
 
 </body>
