@@ -1,5 +1,5 @@
-```html
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -8,6 +8,10 @@
 <title>Moeri Okuda | Researcher</title>
 
 <style>
+
+/* =========================================================
+   COLOR
+========================================================= */
 
 :root {
     --green-dark: #173f35;
@@ -19,6 +23,11 @@
     --border: #dce6e1;
     --white: #ffffff;
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -61,7 +70,7 @@ header {
         linear-gradient(
             135deg,
             #173f35 0%,
-            #245b4d 55%,
+            #245b4d 48%,
             #2f6f5e 100%
         );
 
@@ -77,7 +86,7 @@ header {
 
     position: relative;
 
-    z-index: 10;
+    z-index: 20;
 
     width: 100%;
 
@@ -90,40 +99,75 @@ header {
 
 
 /* =========================================================
-   FABRIC ANIMATION
+   BACKGROUND LIGHT
+========================================================= */
+
+header::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,255,255,0.10),
+            transparent 58%
+        );
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   LARGE BACKGROUND FABRIC
 ========================================================= */
 
 .fabric {
 
     position: absolute;
 
-    z-index: 1;
+    z-index: 2;
 
     pointer-events: none;
 
-    width: 62%;
+    width: 64%;
 
-    height: 115%;
+    height: 125%;
 
-    top: -5%;
+    top: -12%;
 
-    opacity: 0.32;
+    opacity: 0.28;
 
-    filter: blur(0.2px);
+    filter:
+        blur(0.5px)
+        drop-shadow(
+            0 0 18px
+            rgba(220,245,237,0.08)
+        );
 
 }
 
 
-/* LEFT FABRIC */
+/* =========================================================
+   LEFT FABRIC
+========================================================= */
 
 .fabric-left {
 
-    left: -30%;
+    left: -38%;
 
     transform-origin: center;
 
     animation:
-        fabricLeft 9s ease-in-out infinite alternate;
+        backgroundFabricLeft
+        11s
+        ease-in-out
+        infinite;
 }
 
 
@@ -134,29 +178,25 @@ header {
 
     position: absolute;
 
-    width: 100%;
+    inset: 0;
 
-    height: 100%;
-
-    left: 0;
-
-    top: 0;
-
-    border-radius: 48% 52% 45% 55% / 35% 45% 55% 65%;
+    border-radius:
+        48% 52% 43% 57% /
+        35% 45% 55% 65%;
 
     background:
         linear-gradient(
             105deg,
-            rgba(255,255,255,0.03),
-            rgba(180,220,208,0.55),
-            rgba(255,255,255,0.15),
-            rgba(55,120,101,0.45)
+            rgba(255,255,255,0.01),
+            rgba(194,228,216,0.52),
+            rgba(255,255,255,0.12),
+            rgba(58,125,105,0.45),
+            rgba(255,255,255,0.02)
         );
 
     transform:
-        rotate(-14deg)
+        rotate(-13deg)
         skewY(-8deg);
-
 }
 
 
@@ -165,30 +205,36 @@ header {
     opacity: 0.55;
 
     transform:
-        rotate(-8deg)
+        rotate(-7deg)
         translateY(55px)
         skewY(-10deg);
 
     background:
         linear-gradient(
             110deg,
-            rgba(100,170,148,0.05),
-            rgba(230,248,241,0.45),
-            rgba(40,100,83,0.4)
+            rgba(100,170,148,0.02),
+            rgba(235,249,243,0.44),
+            rgba(42,105,87,0.36),
+            rgba(255,255,255,0.02)
         );
 }
 
 
-/* RIGHT FABRIC */
+/* =========================================================
+   RIGHT FABRIC
+========================================================= */
 
 .fabric-right {
 
-    right: -30%;
+    right: -38%;
 
     transform-origin: center;
 
     animation:
-        fabricRight 9s ease-in-out infinite alternate;
+        backgroundFabricRight
+        11s
+        ease-in-out
+        infinite;
 }
 
 
@@ -199,29 +245,24 @@ header {
 
     position: absolute;
 
-    width: 100%;
+    inset: 0;
 
-    height: 100%;
-
-    right: 0;
-
-    top: 0;
-
-    border-radius: 52% 48% 55% 45% / 45% 35% 65% 55%;
+    border-radius:
+        52% 48% 57% 43% /
+        45% 35% 65% 55%;
 
     background:
         linear-gradient(
             75deg,
-            rgba(55,120,101,0.45),
-            rgba(255,255,255,0.15),
-            rgba(180,220,208,0.55),
-            rgba(255,255,255,0.03)
+            rgba(58,125,105,0.42),
+            rgba(255,255,255,0.12),
+            rgba(194,228,216,0.52),
+            rgba(255,255,255,0.02)
         );
 
     transform:
-        rotate(14deg)
+        rotate(13deg)
         skewY(8deg);
-
 }
 
 
@@ -230,23 +271,25 @@ header {
     opacity: 0.55;
 
     transform:
-        rotate(8deg)
+        rotate(7deg)
         translateY(55px)
         skewY(10deg);
 
     background:
         linear-gradient(
             70deg,
-            rgba(40,100,83,0.4),
-            rgba(230,248,241,0.45),
-            rgba(100,170,148,0.05)
+            rgba(42,105,87,0.36),
+            rgba(235,249,243,0.44),
+            rgba(100,170,148,0.02)
         );
 }
 
 
-/* WAVE MOTION */
+/* =========================================================
+   BACKGROUND FABRIC MOTION
+========================================================= */
 
-@keyframes fabricLeft {
+@keyframes backgroundFabricLeft {
 
     0% {
 
@@ -258,30 +301,49 @@ header {
 
     }
 
+    25% {
+
+        transform:
+            translateX(7%)
+            translateY(-18px)
+            rotate(4deg)
+            scaleY(1.04);
+
+    }
+
     50% {
 
         transform:
-            translateX(12%)
-            translateY(20px)
+            translateX(16%)
+            translateY(18px)
+            rotate(-5deg)
+            scaleY(0.96);
+
+    }
+
+    75% {
+
+        transform:
+            translateX(24%)
+            translateY(-10px)
             rotate(5deg)
-            scaleY(1.04);
+            scaleY(1.05);
 
     }
 
     100% {
 
         transform:
-            translateX(23%)
-            translateY(-15px)
+            translateX(32%)
+            translateY(15px)
             rotate(-2deg)
             scaleY(0.98);
 
     }
-
 }
 
 
-@keyframes fabricRight {
+@keyframes backgroundFabricRight {
 
     0% {
 
@@ -293,77 +355,528 @@ header {
 
     }
 
+    25% {
+
+        transform:
+            translateX(-7%)
+            translateY(18px)
+            rotate(-4deg)
+            scaleY(1.04);
+
+    }
+
     50% {
 
         transform:
-            translateX(-12%)
-            translateY(-20px)
+            translateX(-16%)
+            translateY(-18px)
+            rotate(5deg)
+            scaleY(0.96);
+
+    }
+
+    75% {
+
+        transform:
+            translateX(-24%)
+            translateY(10px)
             rotate(-5deg)
-            scaleY(1.04);
+            scaleY(1.05);
 
     }
 
     100% {
 
         transform:
-            translateX(-23%)
-            translateY(15px)
+            translateX(-32%)
+            translateY(-15px)
             rotate(2deg)
             scaleY(0.98);
 
     }
-
 }
 
 
-/* ADDITIONAL FLOWING LINES */
+/* =========================================================
+   HERO NAME
+========================================================= */
+
+.hero-name {
+
+    position: relative;
+
+    display: inline-block;
+
+    padding: 28px 0;
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+.hero-name h1 {
+
+    position: relative;
+
+    z-index: 10;
+
+    font-size:
+        clamp(44px, 8vw, 76px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+
+    letter-spacing: -2px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 3px 22px
+        rgba(10,45,36,0.28);
+}
+
+
+/* =========================================================
+   FOREGROUND FABRIC
+========================================================= */
+
+.fabric-sweep {
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 560px;
+
+    height: 145px;
+
+    pointer-events: none;
+
+    z-index: 6;
+
+    opacity: 0;
+
+    filter:
+        blur(0.4px)
+        drop-shadow(
+            0 5px 12px
+            rgba(10,50,40,0.10)
+        );
+
+    border-radius:
+        50% 45% 55% 40% /
+        60% 40% 55% 45%;
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(255,255,255,0),
+            rgba(214,241,232,0.62),
+            rgba(255,255,255,0.30),
+            rgba(139,194,174,0.48),
+            rgba(255,255,255,0)
+        );
+}
+
+
+/* =========================================================
+   LEFT → RIGHT FABRIC
+========================================================= */
+
+.fabric-sweep-left {
+
+    left: -620px;
+
+    transform:
+        translateY(-50%)
+        rotate(-7deg);
+
+    animation:
+        sweepLeft
+        8.5s
+        cubic-bezier(.45,.05,.55,.95)
+        infinite;
+}
+
+
+/* =========================================================
+   RIGHT → LEFT FABRIC
+========================================================= */
+
+.fabric-sweep-right {
+
+    right: -620px;
+
+    transform:
+        translateY(-50%)
+        rotate(7deg)
+        scaleX(-1);
+
+    animation:
+        sweepRight
+        8.5s
+        cubic-bezier(.45,.05,.55,.95)
+        infinite;
+
+    animation-delay:
+        4.25s;
+}
+
+
+/* =========================================================
+   FABRIC INNER WAVES
+========================================================= */
+
+.fabric-sweep::before,
+.fabric-sweep::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius:
+        45% 55% 40% 60% /
+        50% 40% 60% 50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(240,252,247,0.50) 30%,
+            rgba(126,184,163,0.38) 52%,
+            rgba(235,250,244,0.45) 72%,
+            transparent 100%
+        );
+}
+
+
+.fabric-sweep::before {
+
+    animation:
+        innerWaveA
+        2.8s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+.fabric-sweep::after {
+
+    opacity: 0.55;
+
+    transform:
+        translateY(22px)
+        scaleY(0.7);
+
+    animation:
+        innerWaveB
+        3.4s
+        ease-in-out
+        infinite
+        alternate-reverse;
+}
+
+
+/* =========================================================
+   LEFT FABRIC CROSSING
+========================================================= */
+
+@keyframes sweepLeft {
+
+    0% {
+
+        left: -620px;
+
+        opacity: 0;
+
+        transform:
+            translateY(-50%)
+            rotate(-10deg)
+            scaleX(0.75)
+            scaleY(0.82);
+
+    }
+
+    12% {
+
+        opacity: 0.78;
+
+    }
+
+    28% {
+
+        transform:
+            translateY(-55%)
+            rotate(5deg)
+            scaleX(1.05)
+            scaleY(1.12);
+
+    }
+
+    48% {
+
+        left: 5%;
+
+        transform:
+            translateY(-45%)
+            rotate(-4deg)
+            scaleX(1.20)
+            scaleY(1.05);
+
+    }
+
+    62% {
+
+        transform:
+            translateY(-52%)
+            rotate(6deg)
+            scaleX(1.05)
+            scaleY(1.16);
+
+    }
+
+    82% {
+
+        opacity: 0.68;
+
+    }
+
+    100% {
+
+        left: 115%;
+
+        opacity: 0;
+
+        transform:
+            translateY(-48%)
+            rotate(-7deg)
+            scaleX(0.80)
+            scaleY(0.90);
+
+    }
+}
+
+
+/* =========================================================
+   RIGHT FABRIC CROSSING
+========================================================= */
+
+@keyframes sweepRight {
+
+    0% {
+
+        right: -620px;
+
+        opacity: 0;
+
+        transform:
+            translateY(-50%)
+            rotate(10deg)
+            scaleX(-0.75)
+            scaleY(0.82);
+
+    }
+
+    12% {
+
+        opacity: 0.78;
+
+    }
+
+    28% {
+
+        transform:
+            translateY(-45%)
+            rotate(-5deg)
+            scaleX(-1.05)
+            scaleY(1.12);
+
+    }
+
+    48% {
+
+        right: 5%;
+
+        transform:
+            translateY(-55%)
+            rotate(4deg)
+            scaleX(-1.20)
+            scaleY(1.05);
+
+    }
+
+    62% {
+
+        transform:
+            translateY(-48%)
+            rotate(-6deg)
+            scaleX(-1.05)
+            scaleY(1.16);
+
+    }
+
+    82% {
+
+        opacity: 0.68;
+
+    }
+
+    100% {
+
+        right: 115%;
+
+        opacity: 0;
+
+        transform:
+            translateY(-52%)
+            rotate(7deg)
+            scaleX(-0.80)
+            scaleY(0.90);
+
+    }
+}
+
+
+/* =========================================================
+   INNER WAVE
+========================================================= */
+
+@keyframes innerWaveA {
+
+    0% {
+
+        transform:
+            translateX(-25px)
+            translateY(5px)
+            rotate(-4deg)
+            scaleY(0.82);
+
+    }
+
+    50% {
+
+        transform:
+            translateX(25px)
+            translateY(-16px)
+            rotate(5deg)
+            scaleY(1.20);
+
+    }
+
+    100% {
+
+        transform:
+            translateX(-15px)
+            translateY(15px)
+            rotate(-3deg)
+            scaleY(0.88);
+
+    }
+}
+
+
+@keyframes innerWaveB {
+
+    0% {
+
+        transform:
+            translateX(20px)
+            translateY(18px)
+            rotate(3deg)
+            scaleY(0.70);
+
+    }
+
+    50% {
+
+        transform:
+            translateX(-25px)
+            translateY(-12px)
+            rotate(-5deg)
+            scaleY(1.12);
+
+    }
+
+    100% {
+
+        transform:
+            translateX(15px)
+            translateY(14px)
+            rotate(2deg)
+            scaleY(0.78);
+
+    }
+}
+
+
+/* =========================================================
+   FLOWING LINES
+========================================================= */
 
 .wave-line {
 
     position: absolute;
 
-    z-index: 2;
+    z-index: 4;
 
-    width: 65%;
+    width: 68%;
 
-    height: 45%;
+    height: 48%;
 
-    top: 30%;
+    top: 27%;
 
-    opacity: 0.15;
+    opacity: 0.13;
 
     border-radius: 50%;
 
-    border-top: 2px solid rgba(255,255,255,0.65);
+    border-top:
+        2px solid
+        rgba(255,255,255,0.7);
 
-    border-bottom: 2px solid rgba(255,255,255,0.3);
+    border-bottom:
+        2px solid
+        rgba(255,255,255,0.3);
 
+    pointer-events: none;
 }
 
 
 .wave-left {
 
-    left: -25%;
+    left: -28%;
 
     transform:
         rotate(-8deg);
 
     animation:
-        waveLeft 7s ease-in-out infinite alternate;
-
+        waveLeft
+        7s
+        ease-in-out
+        infinite
+        alternate;
 }
 
 
 .wave-right {
 
-    right: -25%;
+    right: -28%;
 
     transform:
         rotate(8deg);
 
     animation:
-        waveRight 7s ease-in-out infinite alternate;
-
+        waveRight
+        7s
+        ease-in-out
+        infinite
+        alternate;
 }
 
 
@@ -381,12 +894,11 @@ header {
     to {
 
         transform:
-            translateX(15%)
+            translateX(18%)
             rotate(3deg)
-            scaleY(1.15);
+            scaleY(1.18);
 
     }
-
 }
 
 
@@ -404,20 +916,23 @@ header {
     to {
 
         transform:
-            translateX(-15%)
+            translateX(-18%)
             rotate(-3deg)
-            scaleY(1.15);
+            scaleY(1.18);
 
     }
-
 }
 
 
 /* =========================================================
-   HEADER CONTENT
+   HEADER TEXT
 ========================================================= */
 
 .eyebrow {
+
+    position: relative;
+
+    z-index: 15;
 
     color: #b9d2c9;
 
@@ -429,19 +944,11 @@ header {
 }
 
 
-h1 {
-
-    font-size: clamp(44px, 8vw, 76px);
-
-    line-height: 1.05;
-
-    font-weight: 700;
-
-    letter-spacing: -2px;
-}
-
-
 .subtitle-ja {
+
+    position: relative;
+
+    z-index: 15;
 
     margin-top: 15px;
 
@@ -453,6 +960,10 @@ h1 {
 
 .subtitle-en {
 
+    position: relative;
+
+    z-index: 15;
+
     margin-top: 4px;
 
     color: #b9d2c9;
@@ -461,7 +972,15 @@ h1 {
 }
 
 
+/* =========================================================
+   HEADER LINKS
+========================================================= */
+
 .header-links {
+
+    position: relative;
+
+    z-index: 15;
 
     margin-top: 30px;
 
@@ -479,9 +998,12 @@ h1 {
 
     text-decoration: none;
 
-    border: 1px solid rgba(255,255,255,0.45);
+    border:
+        1px solid
+        rgba(255,255,255,0.45);
 
-    padding: 8px 15px;
+    padding:
+        8px 15px;
 
     border-radius: 999px;
 
@@ -496,11 +1018,14 @@ h1 {
     background: white;
 
     color: var(--green-dark);
+
+    transform:
+        translateY(-2px);
 }
 
 
 /* =========================================================
-   LANGUAGE
+   LANGUAGE SWITCH
 ========================================================= */
 
 .language-switch {
@@ -511,19 +1036,23 @@ h1 {
 
     right: 25px;
 
-    z-index: 20;
+    z-index: 50;
 }
 
 
 .language-switch button {
 
-    border: 1px solid rgba(255,255,255,0.5);
+    border:
+        1px solid
+        rgba(255,255,255,0.5);
 
-    background: rgba(23,63,53,0.25);
+    background:
+        rgba(23,63,53,0.25);
 
     color: white;
 
-    padding: 7px 13px;
+    padding:
+        7px 13px;
 
     border-radius: 20px;
 
@@ -555,11 +1084,15 @@ nav {
 
     z-index: 100;
 
-    background: rgba(255,255,255,0.97);
+    background:
+        rgba(255,255,255,0.97);
 
-    border-bottom: 1px solid var(--border);
+    border-bottom:
+        1px solid
+        var(--border);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter:
+        blur(10px);
 }
 
 
@@ -581,7 +1114,8 @@ nav {
 
     background: none;
 
-    padding: 18px 20px;
+    padding:
+        18px 20px;
 
     font-size: 14px;
 
@@ -593,7 +1127,9 @@ nav {
 
     white-space: nowrap;
 
-    border-bottom: 3px solid transparent;
+    border-bottom:
+        3px solid
+        transparent;
 
     transition: 0.2s;
 }
@@ -609,7 +1145,8 @@ nav {
 
     color: var(--green-dark);
 
-    border-bottom-color: var(--green);
+    border-bottom-color:
+        var(--green);
 }
 
 
@@ -623,7 +1160,8 @@ main {
 
     margin: 0 auto;
 
-    padding: 55px 20px 100px;
+    padding:
+        55px 20px 100px;
 }
 
 
@@ -631,7 +1169,10 @@ main {
 
     display: none;
 
-    animation: fadeIn 0.25s ease;
+    animation:
+        fadeIn
+        0.25s
+        ease;
 }
 
 
@@ -647,7 +1188,8 @@ main {
 
         opacity: 0;
 
-        transform: translateY(5px);
+        transform:
+            translateY(5px);
 
     }
 
@@ -655,10 +1197,10 @@ main {
 
         opacity: 1;
 
-        transform: translateY(0);
+        transform:
+            translateY(0);
 
     }
-
 }
 
 
@@ -697,9 +1239,12 @@ main {
 
 .card {
 
-    background: var(--white);
+    background:
+        var(--white);
 
-    border: 1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
     border-radius: 16px;
 
@@ -709,7 +1254,8 @@ main {
         0 5px 20px
         rgba(23,63,53,0.04);
 
-    transition: 0.2s;
+    transition:
+        0.2s;
 }
 
 
@@ -728,13 +1274,15 @@ main {
 
     margin-bottom: 8px;
 
-    color: var(--green-dark);
+    color:
+        var(--green-dark);
 }
 
 
 .card p {
 
-    color: var(--text-light);
+    color:
+        var(--text-light);
 }
 
 
@@ -767,13 +1315,16 @@ main {
 
 .tag {
 
-    background: var(--green-light);
+    background:
+        var(--green-light);
 
-    color: var(--green-dark);
+    color:
+        var(--green-dark);
 
     border-radius: 999px;
 
-    padding: 7px 13px;
+    padding:
+        7px 13px;
 
     font-size: 13px;
 }
@@ -786,7 +1337,8 @@ main {
 .timeline {
 
     border-left:
-        2px solid #bfd2ca;
+        2px solid
+        #bfd2ca;
 
     margin-left: 8px;
 
@@ -818,7 +1370,8 @@ main {
 
     border-radius: 50%;
 
-    background: var(--green);
+    background:
+        var(--green);
 
     box-shadow:
         0 0 0 4px
@@ -832,7 +1385,8 @@ main {
 
     font-weight: bold;
 
-    color: var(--green);
+    color:
+        var(--green);
 }
 
 
@@ -844,7 +1398,8 @@ main {
 
     margin-top: 3px;
 
-    color: var(--green-dark);
+    color:
+        var(--green-dark);
 }
 
 
@@ -858,11 +1413,13 @@ main {
 
     margin-top: 20px;
 
-    padding: 11px 18px;
+    padding:
+        11px 18px;
 
     border-radius: 9px;
 
-    background: var(--green);
+    background:
+        var(--green);
 
     color: white;
 
@@ -870,13 +1427,15 @@ main {
 
     font-size: 14px;
 
-    transition: 0.2s;
+    transition:
+        0.2s;
 }
 
 
 .button:hover {
 
-    background: var(--green-dark);
+    background:
+        var(--green-dark);
 
     transform:
         translateY(-2px);
@@ -887,10 +1446,12 @@ main {
 
     background: white;
 
-    color: var(--green-dark);
+    color:
+        var(--green-dark);
 
     border:
-        1px solid #bfd2ca;
+        1px solid
+        #bfd2ca;
 
     margin-left: 8px;
 }
@@ -902,10 +1463,12 @@ main {
 
 .publication {
 
-    padding: 21px 0;
+    padding:
+        21px 0;
 
     border-bottom:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 }
 
 
@@ -915,7 +1478,8 @@ main {
 
     font-size: 17px;
 
-    color: var(--green-dark);
+    color:
+        var(--green-dark);
 }
 
 
@@ -923,7 +1487,8 @@ main {
 
     margin-top: 5px;
 
-    color: var(--text-light);
+    color:
+        var(--text-light);
 
     font-size: 14px;
 }
@@ -941,7 +1506,8 @@ main {
 
     color: inherit;
 
-    transition: 0.2s;
+    transition:
+        0.2s;
 }
 
 
@@ -966,7 +1532,8 @@ main {
 
     font-size: 12px;
 
-    color: #8b9993;
+    color:
+        #8b9993;
 }
 
 
@@ -984,7 +1551,8 @@ footer {
 
     text-align: center;
 
-    padding: 35px 20px;
+    padding:
+        35px 20px;
 
     font-size: 13px;
 }
@@ -1029,8 +1597,8 @@ body.english h3.en {
 
     header {
 
-        min-height: 620px;
-
+        min-height:
+            620px;
     }
 
 
@@ -1038,26 +1606,25 @@ body.english h3.en {
 
         padding:
             100px 20px 90px;
-
     }
 
 
     .language-switch {
 
-        position: absolute;
+        position:
+            absolute;
 
         top: 20px;
 
         right: 20px;
-
     }
 
 
     .grid,
     .profile {
 
-        grid-template-columns: 1fr;
-
+        grid-template-columns:
+            1fr;
     }
 
 
@@ -1065,46 +1632,107 @@ body.english h3.en {
 
         padding:
             15px 14px;
-
     }
 
 
     main {
 
-        padding-top: 35px;
-
+        padding-top:
+            35px;
     }
 
 
     .button.secondary {
 
-        margin-left: 0;
-
+        margin-left:
+            0;
     }
 
 
     .fabric {
 
-        width: 100%;
+        width:
+            105%;
 
-        opacity: 0.25;
-
+        opacity:
+            0.22;
     }
 
 
     .fabric-left {
 
-        left: -65%;
-
+        left:
+            -72%;
     }
 
 
     .fabric-right {
 
-        right: -65%;
-
+        right:
+            -72%;
     }
 
+
+    .fabric-sweep {
+
+        width:
+            380px;
+
+        height:
+            105px;
+    }
+
+
+    .fabric-sweep-left {
+
+        left:
+            -430px;
+    }
+
+
+    .fabric-sweep-right {
+
+        right:
+            -430px;
+    }
+
+
+    .hero-name {
+
+        width:
+            100%;
+    }
+
+
+    .hero-name h1 {
+
+        font-size:
+            clamp(42px, 12vw, 62px);
+
+        letter-spacing:
+            -1.5px;
+    }
+
+
+    .subtitle-ja {
+
+        font-size:
+            18px;
+    }
+
+
+    .subtitle-en {
+
+        font-size:
+            15px;
+    }
+
+
+    .wave-line {
+
+        width:
+            100%;
+    }
 }
 
 
@@ -1116,72 +1744,107 @@ body.english h3.en {
 
     .fabric-left,
     .fabric-right,
+    .fabric-sweep-left,
+    .fabric-sweep-right,
     .wave-left,
-    .wave-right {
+    .wave-right,
+    .fabric-sweep::before,
+    .fabric-sweep::after {
 
-        animation: none;
-
+        animation:
+            none;
     }
 
 }
 
 </style>
-</head>
 
+</head>
 
 <body>
 
-
 <!-- =====================================================
-     HEADER / HERO
+     HEADER
 ===================================================== -->
 
 <header>
 
+```
+<!-- BACKGROUND FABRIC -->
 
-    <!-- LEFT FABRIC -->
-
-    <div class="fabric fabric-left"></div>
-
-
-    <!-- RIGHT FABRIC -->
-
-    <div class="fabric fabric-right"></div>
+<div
+    class="fabric fabric-left">
+</div>
 
 
-    <!-- FLOWING LINES -->
-
-    <div class="wave-line wave-left"></div>
-
-    <div class="wave-line wave-right"></div>
+<div
+    class="fabric fabric-right">
+</div>
 
 
-    <div class="header-inner">
+<!-- FLOWING LINES -->
+
+<div
+    class="wave-line wave-left">
+</div>
 
 
-        <!-- LANGUAGE -->
+<div
+    class="wave-line wave-right">
+</div>
 
-        <div class="language-switch">
 
-            <button
-                onclick="toggleLanguage()"
-                id="languageButton">
+<div class="header-inner">
 
-                EN / 日本語
 
-            </button>
+    <!-- LANGUAGE -->
 
+    <div class="language-switch">
+
+        <button
+            onclick="toggleLanguage()"
+            id="languageButton">
+
+            EN / 日本語
+
+        </button>
+
+    </div>
+
+
+    <!-- EYEBROW -->
+
+    <div class="eyebrow">
+
+        RESEARCHER /
+        COMPUTER VISION /
+        AI × BIOLOGY
+
+    </div>
+
+
+    <!-- =================================================
+         MOERI OKUDA + FRONT FABRIC
+    ================================================= -->
+
+    <div class="hero-name">
+
+
+        <!-- LEFT → RIGHT -->
+
+        <div
+            class="fabric-sweep fabric-sweep-left">
         </div>
 
 
-        <div class="eyebrow">
+        <!-- RIGHT → LEFT -->
 
-            RESEARCHER /
-            COMPUTER VISION /
-            AI × BIOLOGY
-
+        <div
+            class="fabric-sweep fabric-sweep-right">
         </div>
 
+
+        <!-- NAME -->
 
         <h1>
 
@@ -1190,63 +1853,75 @@ body.english h3.en {
         </h1>
 
 
-        <div class="subtitle-ja ja">
-
-            奥田 萌莉
-
-        </div>
+    </div>
 
 
-        <div class="subtitle-en en">
+    <!-- JAPANESE NAME -->
 
-            Moeri Okuda
+    <div class="subtitle-ja ja">
 
-        </div>
-
-
-        <div class="subtitle-ja ja">
-
-            Researcher in Computer Vision
-            and AI for Plant Science
-
-        </div>
-
-
-        <div class="subtitle-en en">
-
-            Researcher in Computer Vision
-            and AI for Plant Science
-
-        </div>
-
-
-        <div class="header-links">
-
-
-            <a
-                href="https://orcid.org/0009-0000-7856-7830"
-                target="_blank">
-
-                ORCID
-
-            </a>
-
-
-            <a
-                href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202301004235987922"
-                target="_blank">
-
-                J-GLOBAL
-
-            </a>
-
-
-        </div>
+        奥田 萌莉
 
     </div>
 
-</header>
 
+    <!-- ENGLISH NAME -->
+
+    <div class="subtitle-en en">
+
+        Moeri Okuda
+
+    </div>
+
+
+    <!-- DESCRIPTION -->
+
+    <div class="subtitle-ja ja">
+
+        Researcher in Computer Vision
+        and AI for Plant Science
+
+    </div>
+
+
+    <div class="subtitle-en en">
+
+        Researcher in Computer Vision
+        and AI for Plant Science
+
+    </div>
+
+
+    <!-- HEADER LINKS -->
+
+    <div class="header-links">
+
+
+        <a
+            href="https://orcid.org/0009-0000-7856-7830"
+            target="_blank">
+
+            ORCID
+
+        </a>
+
+
+        <a
+            href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202301004235987922"
+            target="_blank">
+
+            J-GLOBAL
+
+        </a>
+
+
+    </div>
+
+
+</div>
+```
+
+</header>
 
 <!-- =====================================================
      NAVIGATION
@@ -1254,73 +1929,73 @@ body.english h3.en {
 
 <nav>
 
-    <div class="nav-inner">
+```
+<div class="nav-inner">
 
 
-        <button
-            class="tab-button active"
-            onclick="openTab('about', this)">
+    <button
+        class="tab-button active"
+        onclick="openTab('about', this)">
 
-            About
+        About
 
-        </button>
-
-
-        <button
-            class="tab-button"
-            onclick="openTab('cv', this)">
-
-            CV
-
-        </button>
+    </button>
 
 
-        <button
-            class="tab-button"
-            onclick="openTab('research', this)">
+    <button
+        class="tab-button"
+        onclick="openTab('cv', this)">
 
-            <span class="ja">
-                研究
-            </span>
+        CV
 
-            <span class="en">
-                Research
-            </span>
-
-        </button>
+    </button>
 
 
-        <button
-            class="tab-button"
-            onclick="openTab('publications', this)">
+    <button
+        class="tab-button"
+        onclick="openTab('research', this)">
 
-            <span class="ja">
-                論文・発表
-            </span>
+        <span class="ja">
+            研究
+        </span>
 
-            <span class="en">
-                Publications
-            </span>
+        <span class="en">
+            Research
+        </span>
 
-        </button>
-
-
-        <button
-            class="tab-button"
-            onclick="openTab('profiles', this)">
-
-            Profiles
-
-        </button>
+    </button>
 
 
-    </div>
+    <button
+        class="tab-button"
+        onclick="openTab('publications', this)">
+
+        <span class="ja">
+            論文・発表
+        </span>
+
+        <span class="en">
+            Publications
+        </span>
+
+    </button>
+
+
+    <button
+        class="tab-button"
+        onclick="openTab('profiles', this)">
+
+        Profiles
+
+    </button>
+
+
+</div>
+```
 
 </nav>
 
-
 <main>
-
 
 <!-- =====================================================
      ABOUT
@@ -1330,115 +2005,113 @@ body.english h3.en {
     id="about"
     class="tab-content active">
 
-
-    <div class="profile">
-
-
-        <div>
+```
+<div class="profile">
 
 
-            <div class="tags">
+    <div>
+
+        <div class="tags">
 
 
-                <span class="tag">
-                    Computer Vision
-                </span>
+            <span class="tag">
+                Computer Vision
+            </span>
 
 
-                <span class="tag">
-                    AI
-                </span>
+            <span class="tag">
+                AI
+            </span>
 
 
-                <span class="tag">
-                    Plant Science
-                </span>
-
-
-                <span class="tag">
-                    Image Analysis
-                </span>
-
-
-                <span class="tag">
-                    Representation Learning
-                </span>
-
-
-            </div>
-
-
-        </div>
-
-
-        <div class="card">
-
-
-            <h3 class="ja">
-
-                現在の所属
-
-            </h3>
-
-
-            <h3 class="en">
-
-                Current Position
-
-            </h3>
-
-
-            <p class="ja">
-
-                理化学研究所<br>
-                生命機能科学研究センター<br>
-                AI生物学研究チーム
-
-            </p>
-
-
-            <p class="en">
-
-                RIKEN<br>
-                Center for Life Science Technologies<br>
-                AI Biology Research Team
-
-            </p>
-
-
-            <br>
-
-
-            <h3 class="ja">
-
-                研究分野
-
-            </h3>
-
-
-            <h3 class="en">
-
-                Research Field
-
-            </h3>
-
-
-            <p>
-
-                Computer Vision<br>
-                Artificial Intelligence<br>
+            <span class="tag">
                 Plant Science
+            </span>
 
-            </p>
+
+            <span class="tag">
+                Image Analysis
+            </span>
+
+
+            <span class="tag">
+                Representation Learning
+            </span>
 
 
         </div>
+
+    </div>
+
+
+    <div class="card">
+
+
+        <h3 class="ja">
+
+            現在の所属
+
+        </h3>
+
+
+        <h3 class="en">
+
+            Current Position
+
+        </h3>
+
+
+        <p class="ja">
+
+            理化学研究所<br>
+            生命機能科学研究センター<br>
+            AI生物学研究チーム
+
+        </p>
+
+
+        <p class="en">
+
+            RIKEN<br>
+            Center for Life Science Technologies<br>
+            AI Biology Research Team
+
+        </p>
+
+
+        <br>
+
+
+        <h3 class="ja">
+
+            研究分野
+
+        </h3>
+
+
+        <h3 class="en">
+
+            Research Field
+
+        </h3>
+
+
+        <p>
+
+            Computer Vision<br>
+            Artificial Intelligence<br>
+            Plant Science
+
+        </p>
 
 
     </div>
 
-</section>
 
+</div>
+```
+
+</section>
 
 <!-- =====================================================
      CV
@@ -1448,301 +2121,304 @@ body.english h3.en {
     id="cv"
     class="tab-content">
 
+```
+<h2 class="section-title">
 
-    <h2 class="section-title">
+    CV
 
-        CV
-
-    </h2>
+</h2>
 
 
-    <p class="section-description ja">
+<p class="section-description ja">
 
-        学歴・職歴
+    学歴・職歴
+
+</p>
+
+
+<p class="section-description en">
+
+    Academic and professional background
+
+</p>
+
+
+<div class="card">
+
+
+    <h3>
+
+        Curriculum Vitae
+
+    </h3>
+
+
+    <p class="ja">
+
+        詳細な経歴はPDF版CVをご覧ください。
 
     </p>
 
 
-    <p class="section-description en">
+    <p class="en">
 
-        Academic and professional background
+        Please see the PDF version
+        of the CV for detailed information.
 
     </p>
 
 
-    <div class="card">
+    <a
+        href="moeriokuda.pdf"
+        class="button"
+        download>
+
+        ↓ Download CV (PDF)
+
+    </a>
 
 
-        <h3>
+    <a
+        href="moeriokuda.pdf"
+        class="button secondary"
+        target="_blank">
 
-            Curriculum Vitae
+        View PDF
 
-        </h3>
+    </a>
+
+
+</div>
+
+
+<!-- TIMELINE -->
+
+<div
+    class="timeline"
+    style="margin-top:45px;">
+
+
+    <div class="timeline-item">
+
+
+        <div class="timeline-year">
+
+            2026 – Present
+
+        </div>
+
+
+        <div class="timeline-title ja">
+
+            理化学研究所 — 特別研究員
+
+        </div>
+
+
+        <div class="timeline-title en">
+
+            RIKEN — Special Researcher
+
+        </div>
 
 
         <p class="ja">
 
-            詳細な経歴はPDF版CVをご覧ください。
+            生命機能科学研究センター<br>
+            AI生物学研究チーム
 
         </p>
 
 
         <p class="en">
 
-            Please see the PDF version
-            of the CV for detailed information.
+            Center for Life Science Technologies<br>
+            AI Biology Research Team
 
         </p>
 
 
-        <a
-            href="moeriokuda.pdf"
-            class="button"
-            download>
-
-            ↓ Download CV (PDF)
-
-        </a>
+    </div>
 
 
-        <a
-            href="moeriokuda.pdf"
-            class="button secondary"
-            target="_blank">
+    <div class="timeline-item">
 
-            View PDF
 
-        </a>
+        <div class="timeline-year">
+
+            2024 – 2026
+
+        </div>
+
+
+        <div class="timeline-title ja">
+
+            兵庫県立大学
+
+        </div>
+
+
+        <div class="timeline-title en">
+
+            University of Hyogo
+
+        </div>
+
+
+        <p class="ja">
+
+            助教
+
+        </p>
+
+
+        <p class="en">
+
+            Assistant Professor
+
+        </p>
 
 
     </div>
 
 
-    <div
-        class="timeline"
-        style="margin-top:45px;">
+    <div class="timeline-item">
 
 
-        <div class="timeline-item">
+        <div class="timeline-year">
 
-
-            <div class="timeline-year">
-
-                2026 – Present
-
-            </div>
-
-
-            <div class="timeline-title ja">
-
-                理化学研究所 — 特別研究員
-
-            </div>
-
-
-            <div class="timeline-title en">
-
-                RIKEN — Special Researcher
-
-            </div>
-
-
-            <p class="ja">
-
-                生命機能科学研究センター<br>
-                AI生物学研究チーム
-
-            </p>
-
-
-            <p class="en">
-
-                Center for Life Science Technologies<br>
-                AI Biology Research Team
-
-            </p>
-
+            2023 – 2026
 
         </div>
 
 
-        <div class="timeline-item">
+        <div class="timeline-title ja">
 
-
-            <div class="timeline-year">
-
-                2024 – 2026
-
-            </div>
-
-
-            <div class="timeline-title ja">
-
-                兵庫県立大学
-
-            </div>
-
-
-            <div class="timeline-title en">
-
-                University of Hyogo
-
-            </div>
-
-
-            <p class="ja">
-
-                助教
-
-            </p>
-
-
-            <p class="en">
-
-                Assistant Professor
-
-            </p>
-
+            兵庫県立大学 — 博士課程
 
         </div>
 
 
-        <div class="timeline-item">
+        <div class="timeline-title en">
 
-
-            <div class="timeline-year">
-
-                2023 – 2026
-
-            </div>
-
-
-            <div class="timeline-title ja">
-
-                兵庫県立大学 — 博士課程
-
-            </div>
-
-
-            <div class="timeline-title en">
-
-                University of Hyogo — Ph.D.
-
-            </div>
-
-
-            <p class="ja">
-
-                情報科学
-
-            </p>
-
-
-            <p class="en">
-
-                Information Science
-
-            </p>
-
+            University of Hyogo — Ph.D.
 
         </div>
 
 
-        <div class="timeline-item">
+        <p class="ja">
+
+            情報科学
+
+        </p>
 
 
-            <div class="timeline-year">
+        <p class="en">
 
-                2021 – 2023
+            Information Science
 
-            </div>
-
-
-            <div class="timeline-title ja">
-
-                兵庫県立大学 — 修士課程
-
-            </div>
-
-
-            <div class="timeline-title en">
-
-                University of Hyogo — Master's Degree
-
-            </div>
-
-
-            <p class="ja">
-
-                情報科学
-
-            </p>
-
-
-            <p class="en">
-
-                Information Science
-
-            </p>
-
-
-        </div>
-
-
-        <div class="timeline-item">
-
-
-            <div class="timeline-year">
-
-                2017 – 2021
-
-            </div>
-
-
-            <div class="timeline-title">
-
-                神戸女学院大学
-
-            </div>
-            
-            <div class="timeline-title en">
-
-                Kobe Colledge — Bachelor's Degree
-
-            </div>
-
-            <p class="ja">
-
-                人間科学
-
-            </p>
-
-
-            <p class="en">
-
-                Human Sciences
-
-            </p>
-
-
-        </div>
+        </p>
 
 
     </div>
 
 
-    <a
-        href="https://www.bdr.riken.jp/ja/research/labs/ozaki-h/index.html"
-        target="_blank"
-        class="button">
+    <div class="timeline-item">
 
-        RIKEN Research Lab →
 
-    </a>
+        <div class="timeline-year">
 
+            2021 – 2023
+
+        </div>
+
+
+        <div class="timeline-title ja">
+
+            兵庫県立大学 — 修士課程
+
+        </div>
+
+
+        <div class="timeline-title en">
+
+            University of Hyogo — Master's Degree
+
+        </div>
+
+
+        <p class="ja">
+
+            情報科学
+
+        </p>
+
+
+        <p class="en">
+
+            Information Science
+
+        </p>
+
+
+    </div>
+
+
+    <div class="timeline-item">
+
+
+        <div class="timeline-year">
+
+            2017 – 2021
+
+        </div>
+
+
+        <div class="timeline-title ja">
+
+            神戸女学院大学
+
+        </div>
+
+
+        <div class="timeline-title en">
+
+            Kobe College — Bachelor's Degree
+
+        </div>
+
+
+        <p class="ja">
+
+            人間科学
+
+        </p>
+
+
+        <p class="en">
+
+            Human Sciences
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+<a
+    href="https://www.bdr.riken.jp/ja/research/labs/ozaki-h/index.html"
+    target="_blank"
+    class="button">
+
+    RIKEN Research Lab →
+
+</a>
+```
 
 </section>
-
 
 <!-- =====================================================
      RESEARCH
@@ -1752,135 +2428,151 @@ body.english h3.en {
     id="research"
     class="tab-content">
 
+```
+<h2 class="section-title ja">
 
-    <h2 class="section-title ja">
+    研究
 
-        研究
-
-    </h2>
-
-
-    <h2 class="section-title en">
-
-        Research
-
-    </h2>
+</h2>
 
 
-    <p class="section-description ja">
+<h2 class="section-title en">
 
-        AI・コンピュータビジョン・植物科学
+    Research
 
-    </p>
-
-
-    <p class="section-description en">
-
-        AI, computer vision, and plant science
-
-    </p>
+</h2>
 
 
-    <div class="grid">
+<p class="section-description ja">
+
+    AI・コンピュータビジョン・植物科学
+
+</p>
 
 
-        <div class="card">
+<p class="section-description en">
 
-            <h3>
-                🌱 Plant Growth Analysis
-            </h3>
+    AI, computer vision, and plant science
 
-            <p class="ja">
-
-                植物画像と機械学習を用いた
-                植物の成長率分析。
-
-            </p>
-
-            <p class="en">
-
-                Analysis of plant growth using
-                images and machine learning.
-
-            </p>
-
-        </div>
+</p>
 
 
-        <div class="card">
-
-            <h3>
-                👁 Computer Vision
-            </h3>
-
-            <p class="ja">
-
-                コンピュータビジョンによる
-                画像特徴の抽出・解析。
-
-            </p>
-
-            <p class="en">
-
-                Image feature extraction and
-                analysis using computer vision.
-
-            </p>
-
-        </div>
+<div class="grid">
 
 
-        <div class="card">
-
-            <h3>
-                🧠 AI × Biology
-            </h3>
-
-            <p class="ja">
-
-                AIを用いた生物学的な専門知識・
-                判断の自動化。
-
-            </p>
-
-            <p class="en">
-
-                Automating expert biological
-                knowledge and judgments using AI.
-
-            </p>
-
-        </div>
+    <div class="card">
 
 
-        <div class="card">
+        <h3>
+            🌱 Plant Growth Analysis
+        </h3>
 
-            <h3>
-                📊 Image Analysis
-            </h3>
 
-            <p class="ja">
+        <p class="ja">
 
-                植物画像のセグメンテーション、
-                面積推定、色解析、特徴量抽出。
+            植物画像と機械学習を用いた
+            植物の成長率分析。
 
-            </p>
+        </p>
 
-            <p class="en">
 
-                Segmentation, area estimation,
-                color analysis, and feature
-                extraction from plant images.
+        <p class="en">
 
-            </p>
+            Analysis of plant growth using
+            images and machine learning.
 
-        </div>
+        </p>
 
 
     </div>
 
-</section>
 
+    <div class="card">
+
+
+        <h3>
+            👁 Computer Vision
+        </h3>
+
+
+        <p class="ja">
+
+            コンピュータビジョンによる
+            画像特徴の抽出・解析。
+
+        </p>
+
+
+        <p class="en">
+
+            Image feature extraction and
+            analysis using computer vision.
+
+        </p>
+
+
+    </div>
+
+
+    <div class="card">
+
+
+        <h3>
+            🧠 AI × Biology
+        </h3>
+
+
+        <p class="ja">
+
+            AIを用いた生物学的な専門知識・
+            判断の自動化。
+
+        </p>
+
+
+        <p class="en">
+
+            Automating expert biological
+            knowledge and judgments using AI.
+
+        </p>
+
+
+    </div>
+
+
+    <div class="card">
+
+
+        <h3>
+            📊 Image Analysis
+        </h3>
+
+
+        <p class="ja">
+
+            植物画像のセグメンテーション、
+            面積推定、色解析、特徴量抽出。
+
+        </p>
+
+
+        <p class="en">
+
+            Segmentation, area estimation,
+            color analysis, and feature
+            extraction from plant images.
+
+        </p>
+
+
+    </div>
+
+
+</div>
+```
+
+</section>
 
 <!-- =====================================================
      PUBLICATIONS
@@ -1890,142 +2582,156 @@ body.english h3.en {
     id="publications"
     class="tab-content">
 
+```
+<h2 class="section-title ja">
 
-    <h2 class="section-title ja">
+    論文・発表
 
-        論文・発表
-
-    </h2>
-
-
-    <h2 class="section-title en">
-
-        Publications
-
-    </h2>
+</h2>
 
 
-    <p class="section-description ja">
+<h2 class="section-title en">
 
-        主な研究論文・発表
+    Publications
 
-    </p>
-
-
-    <p class="section-description en">
-
-        Selected publications and presentations
-
-    </p>
+</h2>
 
 
-    <div class="publication">
+<p class="section-description ja">
 
-        <div class="publication-title">
+    主な研究論文・発表
 
-            Identifying Growth Rate Factors
-            of Lemna minor Without Image
+</p>
 
-        </div>
 
-        <div class="publication-meta">
+<p class="section-description en">
 
-            Moeri Okuda · IEEE International Conference
-            on Future Machine Learning and Data Science · 2026
+    Selected publications and presentations
 
-        </div>
+</p>
+
+
+<div class="publication">
+
+
+    <div class="publication-title">
+
+        Identifying Growth Rate Factors
+        of Lemna minor Without Image
 
     </div>
 
 
-    <div class="publication">
+    <div class="publication-meta">
 
-        <div class="publication-title">
-
-            Evaluation of Growth Conditions
-            in Lemna minor using Chlorophyll
-            Fluorescence Analysis
-
-        </div>
-
-        <div class="publication-meta">
-
-            Moeri Okuda, Ryogo Taniguchi,
-            Shinsaku Hiura · IEVC2026 · 2026
-
-        </div>
+        Moeri Okuda · IEEE International Conference
+        on Future Machine Learning and Data Science · 2026
 
     </div>
 
 
-    <div class="publication">
+</div>
 
-        <div class="publication-title">
 
-            Age Prediction of Komatsuna
-            using Hu Moments with Neural Networks
-            for Small Datasets
+<div class="publication">
 
-        </div>
 
-        <div class="publication-meta">
+    <div class="publication-title">
 
-            Moeri Okuda, Shinsaku Hiura ·
-            SNL2025 · 2025
-
-        </div>
+        Evaluation of Growth Conditions
+        in Lemna minor using Chlorophyll
+        Fluorescence Analysis
 
     </div>
 
 
-    <div class="publication">
+    <div class="publication-meta">
 
-        <div class="publication-title">
-
-            クロロフィル蛍光画像を用いた
-            コウキクサの成長要因の分析
-
-        </div>
-
-        <div class="publication-meta">
-
-            奥田萌莉, 谷口諒伍, 日浦慎作 · MIRU2025
-
-        </div>
+        Moeri Okuda, Ryogo Taniguchi,
+        Shinsaku Hiura · IEVC2026 · 2026
 
     </div>
 
 
-    <div class="publication">
+</div>
 
-        <div class="publication-title">
 
-            深層学習による植物画像の専門家的知見を用いた
-            特徴表現の拡張
+<div class="publication">
 
-        </div>
 
-        <div class="publication-meta">
+    <div class="publication-title">
 
-            奥田萌莉, 日浦慎作 · 定量生物学の会 · 2025
-
-        </div>
+        Age Prediction of Komatsuna
+        using Hu Moments with Neural Networks
+        for Small Datasets
 
     </div>
 
 
-    <a
-        href="https://www.bdr.riken.jp/ja/research/labs/ozaki-h/index.html"
-        target="_blank"
-        class="button">
+    <div class="publication-meta">
 
-        RIKEN Research Lab →
+        Moeri Okuda, Shinsaku Hiura ·
+        SNL2025 · 2025
 
-    </a>
+    </div>
 
+
+</div>
+
+
+<div class="publication">
+
+
+    <div class="publication-title">
+
+        クロロフィル蛍光画像を用いた
+        コウキクサの成長要因の分析
+
+    </div>
+
+
+    <div class="publication-meta">
+
+        奥田萌莉, 谷口諒伍, 日浦慎作 · MIRU2025
+
+    </div>
+
+
+</div>
+
+
+<div class="publication">
+
+
+    <div class="publication-title">
+
+        深層学習による植物画像の専門家的知見を用いた
+        特徴表現の拡張
+
+    </div>
+
+
+    <div class="publication-meta">
+
+        奥田萌莉, 日浦慎作 · 定量生物学の会 · 2025
+
+    </div>
+
+
+</div>
+
+
+<a
+    href="https://www.bdr.riken.jp/ja/research/labs/ozaki-h/index.html"
+    target="_blank"
+    class="button">
+
+    RIKEN Research Lab →
+
+</a>
+```
 
 </section>
-
 
 <!-- =====================================================
      PROFILES
@@ -2035,168 +2741,167 @@ body.english h3.en {
     id="profiles"
     class="tab-content">
 
+```
+<h2 class="section-title">
 
-    <h2 class="section-title">
+    <span class="ja">
+        プロフィール
+    </span>
 
-        <span class="ja">
-            プロフィール
-        </span>
+    <span class="en">
+        Profiles
+    </span>
 
-        <span class="en">
-            Profiles
-        </span>
+</h2>
 
-    </h2>
 
+<p class="section-description ja">
 
-    <p class="section-description ja">
+    研究・プロフェッショナルプロフィール
 
-        研究・プロフェッショナルプロフィール
+</p>
 
-    </p>
 
+<p class="section-description en">
 
-    <p class="section-description en">
+    Research and professional profiles
 
-        Research and professional profiles
+</p>
 
-    </p>
 
+<div class="grid">
 
-    <div class="grid">
 
+    <a
+        href="https://github.com/"
+        target="_blank"
+        class="card profile-link">
 
-        <a
-            href="https://github.com/"
-            target="_blank"
-            class="card profile-link">
 
+        <div class="profile-icon">
+            ◉
+        </div>
 
-            <div class="profile-icon">
-                ◉
-            </div>
 
+        <h3>
+            GitHub
+        </h3>
 
-            <h3>
-                GitHub
-            </h3>
 
+        <p class="ja">
 
-            <p class="ja">
+            GitHubプロフィール
 
-                GitHubプロフィール
+        </p>
 
-            </p>
 
+        <p class="en">
 
-            <p class="en">
+            GitHub profile
 
-                GitHub profile
+        </p>
 
-            </p>
 
+    </a>
 
-        </a>
 
+    <a
+        href="https://www.bdr.riken.jp/ja/research/labs/ozaki-h/index.html"
+        target="_blank"
+        class="card profile-link">
 
-        <a
-            href="https://www.bdr.riken.jp/ja/research/labs/ozaki-h/index.html"
-            target="_blank"
-            class="card profile-link">
 
+        <div class="profile-icon">
+            🧬
+        </div>
 
-            <div class="profile-icon">
-                🧬
-            </div>
 
+        <h3>
+            RIKEN
+        </h3>
 
-            <h3>
-                RIKEN
-            </h3>
 
+        <p class="ja">
 
-            <p class="ja">
+            理化学研究所
+            研究室ページ
 
-                理化学研究所
-                研究室ページ
+        </p>
 
-            </p>
 
+        <p class="en">
 
-            <p class="en">
+            RIKEN Research Laboratory
 
-                RIKEN Research Laboratory
+        </p>
 
-            </p>
 
+    </a>
 
-        </a>
 
+    <a
+        href="https://orcid.org/0009-0000-7856-7830"
+        target="_blank"
+        class="card profile-link">
 
-        <a
-            href="https://orcid.org/0009-0000-7856-7830"
-            target="_blank"
-            class="card profile-link">
 
+        <div class="profile-icon">
+            iD
+        </div>
 
-            <div class="profile-icon">
-                iD
-            </div>
 
+        <h3>
+            ORCID
+        </h3>
 
-            <h3>
-                ORCID
-            </h3>
 
+        <p>
+            0009-0000-7856-7830
+        </p>
 
-            <p>
-                0009-0000-7856-7830
-            </p>
 
+    </a>
 
-        </a>
 
+    <a
+        href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202301004235987922"
+        target="_blank"
+        class="card profile-link">
 
-        <a
-            href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202301004235987922"
-            target="_blank"
-            class="card profile-link">
 
+        <div class="profile-icon">
+            J
+        </div>
 
-            <div class="profile-icon">
-                J
-            </div>
 
+        <h3>
+            J-GLOBAL
+        </h3>
 
-            <h3>
-                J-GLOBAL
-            </h3>
 
+        <p class="ja">
 
-            <p class="ja">
+            科学技術振興機構
 
-                科学技術振興機構
+        </p>
 
-            </p>
 
+        <p class="en">
 
-            <p class="en">
+            Japan Science and Technology Agency
 
-                Japan Science and Technology Agency
+        </p>
 
-            </p>
 
+    </a>
 
-        </a>
 
-
-    </div>
+</div>
+```
 
 </section>
 
-
 </main>
-
 
 <!-- =====================================================
      FOOTER
@@ -2204,18 +2909,22 @@ body.english h3.en {
 
 <footer>
 
-    <p>
-        © Moeri Okuda — Research Portfolio
-    </p>
+```
+<p>
 
-    <p style="margin-top:5px;">
+    © Moeri Okuda — Research Portfolio
 
-        Computer Vision · AI · Plant Science
+</p>
 
-    </p>
+
+<p style="margin-top:5px;">
+
+    Computer Vision · AI · Plant Science
+
+</p>
+```
 
 </footer>
-
 
 <!-- =====================================================
      JAVASCRIPT
@@ -2224,31 +2933,45 @@ body.english h3.en {
 <script>
 
 
-/* ================= TAB ================= */
+/* =========================================================
+   TAB
+========================================================= */
 
 function openTab(tabId, button) {
 
 
     const contents =
-        document.querySelectorAll(".tab-content");
+        document.querySelectorAll(
+            ".tab-content"
+        );
 
 
-    contents.forEach(function(content) {
+    contents.forEach(
+        function(content) {
 
-        content.classList.remove("active");
+            content.classList.remove(
+                "active"
+            );
 
-    });
+        }
+    );
 
 
     const buttons =
-        document.querySelectorAll(".tab-button");
+        document.querySelectorAll(
+            ".tab-button"
+        );
 
 
-    buttons.forEach(function(btn) {
+    buttons.forEach(
+        function(btn) {
 
-        btn.classList.remove("active");
+            btn.classList.remove(
+                "active"
+            );
 
-    });
+        }
+    );
 
 
     document
@@ -2270,20 +2993,28 @@ function openTab(tabId, button) {
 }
 
 
-/* ================= LANGUAGE ================= */
+/* =========================================================
+   LANGUAGE
+========================================================= */
 
 function toggleLanguage() {
 
 
-    document.body.classList.toggle("english");
+    document.body.classList.toggle(
+        "english"
+    );
 
 
     const button =
-        document.getElementById("languageButton");
+        document.getElementById(
+            "languageButton"
+        );
 
 
     if (
-        document.body.classList.contains("english")
+        document.body.classList.contains(
+            "english"
+        )
     ) {
 
 
@@ -2311,7 +3042,5 @@ function toggleLanguage() {
 
 </script>
 
-
 </body>
 </html>
-```
