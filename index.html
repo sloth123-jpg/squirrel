@@ -8,6 +8,17 @@
 <title>Moeri Okuda | Researcher</title>
 
 <style>
+:root {
+    --green-dark: #173f35;
+    --green: #2f6f5e;
+    --green-light: #e8f1ed;
+    --green-pale: #f3f7f5;
+    --text: #25332f;
+    --text-light: #66736e;
+    --border: #dce6e1;
+    --white: #ffffff;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -26,15 +37,21 @@ body {
         "Noto Sans JP",
         "Noto Sans",
         sans-serif;
-    background: #f7f8fa;
-    color: #1f2937;
+    background: var(--green-pale);
+    color: var(--text);
     line-height: 1.8;
 }
 
 /* ================= HEADER ================= */
 
 header {
-    background: #111827;
+    background:
+        linear-gradient(
+            135deg,
+            #173f35 0%,
+            #245b4d 55%,
+            #2f6f5e 100%
+        );
     color: white;
     padding: 75px 20px 60px;
 }
@@ -45,7 +62,7 @@ header {
 }
 
 .eyebrow {
-    color: #9ca3af;
+    color: #b9d2c9;
     font-size: 13px;
     letter-spacing: 2px;
     margin-bottom: 12px;
@@ -59,13 +76,13 @@ h1 {
 
 .subtitle-ja {
     margin-top: 15px;
-    color: #d1d5db;
+    color: #e1eee9;
     font-size: 20px;
 }
 
 .subtitle-en {
     margin-top: 4px;
-    color: #9ca3af;
+    color: #b9d2c9;
     font-size: 17px;
 }
 
@@ -79,7 +96,7 @@ h1 {
 .header-links a {
     color: white;
     text-decoration: none;
-    border: 1px solid #4b5563;
+    border: 1px solid rgba(255,255,255,0.45);
     padding: 8px 15px;
     border-radius: 999px;
     font-size: 14px;
@@ -88,7 +105,7 @@ h1 {
 
 .header-links a:hover {
     background: white;
-    color: #111827;
+    color: var(--green-dark);
 }
 
 /* ================= LANGUAGE ================= */
@@ -100,18 +117,19 @@ h1 {
 }
 
 .language-switch button {
-    border: 1px solid #6b7280;
+    border: 1px solid rgba(255,255,255,0.5);
     background: transparent;
     color: white;
     padding: 7px 13px;
     border-radius: 20px;
     cursor: pointer;
     font-size: 13px;
+    transition: 0.2s;
 }
 
 .language-switch button:hover {
     background: white;
-    color: #111827;
+    color: var(--green-dark);
 }
 
 /* ================= NAVIGATION ================= */
@@ -120,8 +138,8 @@ nav {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255,255,255,0.96);
-    border-bottom: 1px solid #e5e7eb;
+    background: rgba(255,255,255,0.97);
+    border-bottom: 1px solid var(--border);
     backdrop-filter: blur(10px);
 }
 
@@ -138,19 +156,20 @@ nav {
     padding: 18px 20px;
     font-size: 14px;
     font-weight: 600;
-    color: #6b7280;
+    color: #71807a;
     cursor: pointer;
     white-space: nowrap;
     border-bottom: 3px solid transparent;
+    transition: 0.2s;
 }
 
 .tab-button:hover {
-    color: #111827;
+    color: var(--green);
 }
 
 .tab-button.active {
-    color: #111827;
-    border-bottom-color: #111827;
+    color: var(--green-dark);
+    border-bottom-color: var(--green);
 }
 
 /* ================= MAIN ================= */
@@ -184,11 +203,11 @@ main {
 .section-title {
     font-size: 34px;
     margin-bottom: 10px;
-    color: #111827;
+    color: var(--green-dark);
 }
 
 .section-description {
-    color: #6b7280;
+    color: var(--text-light);
     margin-bottom: 35px;
 }
 
@@ -201,24 +220,30 @@ main {
 }
 
 .card {
-    background: white;
-    border: 1px solid #e5e7eb;
+    background: var(--white);
+    border: 1px solid var(--border);
     border-radius: 16px;
     padding: 27px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    box-shadow: 0 5px 20px rgba(23,63,53,0.04);
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(23,63,53,0.08);
 }
 
 .card h3 {
     margin-bottom: 8px;
-    color: #111827;
+    color: var(--green-dark);
 }
 
 .card p {
-    color: #6b7280;
+    color: var(--text-light);
 }
 
 .card a {
-    color: #2563eb;
+    color: var(--green);
     text-decoration: none;
 }
 
@@ -233,11 +258,12 @@ main {
 .profile h2 {
     font-size: 38px;
     margin-bottom: 20px;
+    color: var(--green-dark);
 }
 
 .profile-lead {
     font-size: 18px;
-    color: #4b5563;
+    color: #4f615a;
 }
 
 .info-list {
@@ -247,19 +273,19 @@ main {
 
 .info-list li {
     padding: 10px 0;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--border);
 }
 
 .info-list strong {
     display: inline-block;
     width: 140px;
-    color: #111827;
+    color: var(--green-dark);
 }
 
 /* ================= TIMELINE ================= */
 
 .timeline {
-    border-left: 2px solid #d1d5db;
+    border-left: 2px solid #bfd2ca;
     margin-left: 8px;
     padding-left: 28px;
 }
@@ -277,19 +303,21 @@ main {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #111827;
+    background: var(--green);
+    box-shadow: 0 0 0 4px var(--green-light);
 }
 
 .timeline-year {
     font-size: 14px;
     font-weight: bold;
-    color: #6b7280;
+    color: var(--green);
 }
 
 .timeline-title {
     font-size: 19px;
     font-weight: 700;
     margin-top: 3px;
+    color: var(--green-dark);
 }
 
 /* ================= TAGS ================= */
@@ -302,8 +330,8 @@ main {
 }
 
 .tag {
-    background: #eef2ff;
-    color: #3730a3;
+    background: var(--green-light);
+    color: var(--green-dark);
     border-radius: 999px;
     padding: 7px 13px;
     font-size: 13px;
@@ -316,7 +344,7 @@ main {
     margin-top: 20px;
     padding: 11px 18px;
     border-radius: 9px;
-    background: #111827;
+    background: var(--green);
     color: white;
     text-decoration: none;
     font-size: 14px;
@@ -324,32 +352,37 @@ main {
 }
 
 .button:hover {
+    background: var(--green-dark);
     transform: translateY(-2px);
-    opacity: 0.9;
 }
 
 .button.secondary {
     background: white;
-    color: #111827;
-    border: 1px solid #d1d5db;
+    color: var(--green-dark);
+    border: 1px solid #bfd2ca;
     margin-left: 8px;
+}
+
+.button.secondary:hover {
+    background: var(--green-light);
 }
 
 /* ================= PUBLICATIONS ================= */
 
 .publication {
     padding: 21px 0;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--border);
 }
 
 .publication-title {
     font-weight: 700;
     font-size: 17px;
+    color: var(--green-dark);
 }
 
 .publication-meta {
     margin-top: 5px;
-    color: #6b7280;
+    color: var(--text-light);
     font-size: 14px;
 }
 
@@ -372,20 +405,20 @@ main {
 }
 
 .profile-link h3 {
-    color: #111827;
+    color: var(--green-dark);
 }
 
 .note {
     margin-top: 12px;
     font-size: 12px;
-    color: #9ca3af;
+    color: #8b9993;
 }
 
 /* ================= FOOTER ================= */
 
 footer {
-    background: #111827;
-    color: #9ca3af;
+    background: var(--green-dark);
+    color: #b9ccc5;
     text-align: center;
     padding: 35px 20px;
     font-size: 13px;
@@ -452,6 +485,7 @@ body.english h2.en,
 body.english h3.en {
     display: block;
 }
+
 </style>
 </head>
 
@@ -465,43 +499,75 @@ body.english h3.en {
     <div class="header-inner">
 
         <div class="language-switch">
-            <button onclick="toggleLanguage()" id="languageButton">
+
+            <button
+                onclick="toggleLanguage()"
+                id="languageButton">
+
                 EN / 日本語
+
             </button>
+
         </div>
+
 
         <div class="eyebrow">
+
             RESEARCHER / COMPUTER VISION / AI × BIOLOGY
+
         </div>
 
-        <h1>Moeri Okuda</h1>
 
-        <div class="subtitle-ja ja">
-            奥田 萌莉
-        </div>
-
-        <div class="subtitle-en en">
+        <h1>
             Moeri Okuda
-        </div>
+        </h1>
+
 
         <div class="subtitle-ja ja">
-            Researcher in Computer Vision and AI for Plant Science
+
+            奥田 萌莉
+
         </div>
 
+
         <div class="subtitle-en en">
-            Researcher in Computer Vision and AI for Plant Science
+
+            Moeri Okuda
+
         </div>
+
+
+        <div class="subtitle-ja ja">
+
+            Researcher in Computer Vision and AI for Plant Science
+
+        </div>
+
+
+        <div class="subtitle-en en">
+
+            Researcher in Computer Vision and AI for Plant Science
+
+        </div>
+
 
         <div class="header-links">
 
-            <a href="https://orcid.org/0009-0000-7856-7830"
-               target="_blank">
+            <a
+                href="https://orcid.org/0009-0000-7856-7830"
+                target="_blank">
+
                 ORCID
+
             </a>
 
-            <a href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202301004235987922"
-               target="_blank">
+
+            <a
+                href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202301004235987922"
+                target="_blank">
+
                 J-GLOBAL
+
             </a>
 
         </div>
@@ -517,56 +583,71 @@ body.english h3.en {
 
     <div class="nav-inner">
 
-        <button class="tab-button active"
-                onclick="openTab('about', this)">
+        <button
+            class="tab-button active"
+            onclick="openTab('about', this)">
 
-            <span class="ja">About</span>
-            <span class="en">About</span>
+            <span class="ja">
+                About
+            </span>
 
-        </button>
-
-
-        <button class="tab-button"
-                onclick="openTab('cv', this)">
-
-            <span class="ja">CV</span>
-            <span class="en">CV</span>
+            <span class="en">
+                About
+            </span>
 
         </button>
 
 
-        <button class="tab-button"
-                onclick="openTab('research', this)">
+        <button
+            class="tab-button"
+            onclick="openTab('cv', this)">
 
-            <span class="ja">研究</span>
-            <span class="en">Research</span>
-
-        </button>
-
-
-        <button class="tab-button"
-                onclick="openTab('publications', this)">
-
-            <span class="ja">論文・発表</span>
-            <span class="en">Publications</span>
+            CV
 
         </button>
 
 
-        <button class="tab-button"
-                onclick="openTab('profiles', this)">
+        <button
+            class="tab-button"
+            onclick="openTab('research', this)">
 
-            <span class="ja">Profiles</span>
-            <span class="en">Profiles</span>
+            <span class="ja">
+                研究
+            </span>
+
+            <span class="en">
+                Research
+            </span>
 
         </button>
 
 
-        <button class="tab-button"
-                onclick="openTab('links', this)">
+        <button
+            class="tab-button"
+            onclick="openTab('publications', this)">
 
-            <span class="ja">Links</span>
-            <span class="en">Links</span>
+            <span class="ja">
+                論文・発表
+            </span>
+
+            <span class="en">
+                Publications
+            </span>
+
+        </button>
+
+
+        <button
+            class="tab-button"
+            onclick="openTab('profiles', this)">
+
+            <span class="ja">
+                Profiles
+            </span>
+
+            <span class="en">
+                Profiles
+            </span>
 
         </button>
 
@@ -580,20 +661,35 @@ body.english h3.en {
 
 <!-- ================= ABOUT ================= -->
 
-<section id="about" class="tab-content active">
+<section
+    id="about"
+    class="tab-content active">
 
     <div class="profile">
 
         <div>
 
-
             <div class="tags">
 
-                <span class="tag">Computer Vision</span>
-                <span class="tag">AI</span>
-                <span class="tag">Plant Science</span>
-                <span class="tag">Image Analysis</span>
-                <span class="tag">Representation Learning</span>
+                <span class="tag">
+                    Computer Vision
+                </span>
+
+                <span class="tag">
+                    AI
+                </span>
+
+                <span class="tag">
+                    Plant Science
+                </span>
+
+                <span class="tag">
+                    Image Analysis
+                </span>
+
+                <span class="tag">
+                    Representation Learning
+                </span>
 
             </div>
 
@@ -602,30 +698,51 @@ body.english h3.en {
 
         <div class="card">
 
-            <h3 class="ja">現在の所属</h3>
-            <h3 class="en">Current Position</h3>
+            <h3 class="ja">
+                現在の所属
+            </h3>
+
+            <h3 class="en">
+                Current Position
+            </h3>
+
 
             <p class="ja">
+
                 理化学研究所<br>
                 生命機能科学研究センター<br>
                 AI生物学研究チーム
+
             </p>
 
+
             <p class="en">
+
                 RIKEN<br>
                 Center for Life Science Technologies<br>
                 AI Biology Research Team
+
             </p>
+
 
             <br>
 
-            <h3 class="ja">研究分野</h3>
-            <h3 class="en">Research Field</h3>
+
+            <h3 class="ja">
+                研究分野
+            </h3>
+
+            <h3 class="en">
+                Research Field
+            </h3>
+
 
             <p>
+
                 Computer Vision<br>
                 Artificial Intelligence<br>
                 Plant Science
+
             </p>
 
         </div>
@@ -637,16 +754,27 @@ body.english h3.en {
 
 <!-- ================= CV ================= -->
 
-<section id="cv" class="tab-content">
+<section
+    id="cv"
+    class="tab-content">
 
-    <h2 class="section-title">CV</h2>
+
+    <h2 class="section-title">
+        CV
+    </h2>
+
 
     <p class="section-description ja">
+
         学歴・職歴
+
     </p>
 
+
     <p class="section-description en">
+
         Academic and professional background
+
     </p>
 
 
@@ -662,44 +790,66 @@ body.english h3.en {
             Curriculum Vitae
         </h3>
 
+
         <p class="ja">
+
             詳細な経歴はPDF版CVをご覧ください。
+
         </p>
+
 
         <p class="en">
-            Please see the PDF version of the CV for detailed information.
+
+            Please see the PDF version of the CV
+            for detailed information.
+
         </p>
 
-        <a href="cv.pdf"
-           class="button"
-           download>
+
+        <a
+            href="moeriokuda.pdf"
+            class="button"
+            download>
 
             ↓ Download CV (PDF)
 
         </a>
 
-        <a href="cv.pdf"
-           class="button secondary"
-           target="_blank">
+
+        <a
+            href="moeriokuda.pdf"
+            class="button secondary"
+            target="_blank">
 
             View PDF
 
         </a>
 
+
         <p class="note ja">
-            ※ GitHubリポジトリのルートに「cv.pdf」という名前で
+
+            ※ GitHubリポジトリのルートに
+            「moeriokuda.pdf」という名前で
             PDFファイルをアップロードしてください。
+
         </p>
 
+
         <p class="note en">
-            ※ Upload your CV PDF to the root of this GitHub repository
-            with the filename "cv.pdf".
+
+            ※ Upload your CV PDF to the root of this
+            GitHub repository with the filename
+            "moeriokuda.pdf".
+
         </p>
 
     </div>
 
 
-    <div class="timeline" style="margin-top:45px;">
+    <div
+        class="timeline"
+        style="margin-top:45px;">
+
 
         <div class="timeline-item">
 
@@ -707,22 +857,30 @@ body.english h3.en {
                 2026 – Present
             </div>
 
+
             <div class="timeline-title ja">
                 理化学研究所 — 特別研究員
             </div>
+
 
             <div class="timeline-title en">
                 RIKEN — Special Researcher
             </div>
 
+
             <p class="ja">
+
                 生命機能科学研究センター<br>
                 AI生物学研究チーム
+
             </p>
 
+
             <p class="en">
+
                 Center for Life Science Technologies<br>
                 AI Biology Research Team
+
             </p>
 
         </div>
@@ -734,17 +892,21 @@ body.english h3.en {
                 2024 – 2026
             </div>
 
+
             <div class="timeline-title ja">
                 兵庫県立大学
             </div>
+
 
             <div class="timeline-title en">
                 University of Hyogo
             </div>
 
+
             <p class="ja">
                 助教
             </p>
+
 
             <p class="en">
                 Assistant Professor
@@ -759,17 +921,21 @@ body.english h3.en {
                 2023 – 2026
             </div>
 
+
             <div class="timeline-title ja">
                 兵庫県立大学 — 博士課程
             </div>
+
 
             <div class="timeline-title en">
                 University of Hyogo — Ph.D.
             </div>
 
+
             <p class="ja">
                 情報科学
             </p>
+
 
             <p class="en">
                 Information Science
@@ -784,17 +950,21 @@ body.english h3.en {
                 2021 – 2023
             </div>
 
+
             <div class="timeline-title ja">
                 兵庫県立大学 — 修士課程
             </div>
+
 
             <div class="timeline-title en">
                 University of Hyogo — Master's Degree
             </div>
 
+
             <p class="ja">
                 情報科学
             </p>
+
 
             <p class="en">
                 Information Science
@@ -809,13 +979,16 @@ body.english h3.en {
                 2017 – 2021
             </div>
 
+
             <div class="timeline-title">
                 Kobe College
             </div>
 
+
             <p class="ja">
                 人間科学
             </p>
+
 
             <p class="en">
                 Human Sciences
@@ -827,11 +1000,11 @@ body.english h3.en {
 
 
     <a
-        href="https://cv01.ufinity.jp/u_hyogo/cvclients/researchers/moeriokuda"
+        href="https://www.bdr.riken.jp/ja/research/labs/ozaki-h/index.html"
         target="_blank"
         class="button">
 
-        Official Researcher CV →
+        RIKEN Research Lab →
 
     </a>
 
@@ -840,38 +1013,58 @@ body.english h3.en {
 
 <!-- ================= RESEARCH ================= -->
 
-<section id="research" class="tab-content">
+<section
+    id="research"
+    class="tab-content">
+
 
     <h2 class="section-title ja">
-        Research
+        研究
     </h2>
+
 
     <h2 class="section-title en">
         Research
     </h2>
 
+
     <p class="section-description ja">
+
         AI・コンピュータビジョン・植物科学
+
     </p>
 
+
     <p class="section-description en">
+
         AI, computer vision, and plant science
+
     </p>
 
 
     <div class="grid">
 
+
         <div class="card">
 
-            <h3>🌱 Plant Growth Analysis</h3>
+            <h3>
+                🌱 Plant Growth Analysis
+            </h3>
+
 
             <p class="ja">
-                植物画像と機械学習を用いた植物の成長率分析。
+
+                植物画像と機械学習を用いた
+                植物の成長率分析。
+
             </p>
 
+
             <p class="en">
+
                 Analysis of plant growth using images
                 and machine learning.
+
             </p>
 
         </div>
@@ -879,15 +1072,24 @@ body.english h3.en {
 
         <div class="card">
 
-            <h3>👁 Computer Vision</h3>
+            <h3>
+                👁 Computer Vision
+            </h3>
+
 
             <p class="ja">
-                コンピュータビジョンによる画像特徴の抽出・解析。
+
+                コンピュータビジョンによる
+                画像特徴の抽出・解析。
+
             </p>
 
+
             <p class="en">
+
                 Image feature extraction and analysis
                 using computer vision.
+
             </p>
 
         </div>
@@ -895,15 +1097,24 @@ body.english h3.en {
 
         <div class="card">
 
-            <h3>🧠 AI × Biology</h3>
+            <h3>
+                🧠 AI × Biology
+            </h3>
+
 
             <p class="ja">
-                AIを用いた生物学的な専門知識・判断の自動化。
+
+                AIを用いた生物学的な専門知識・
+                判断の自動化。
+
             </p>
 
+
             <p class="en">
+
                 Automating expert biological knowledge
                 and judgments using AI.
+
             </p>
 
         </div>
@@ -911,16 +1122,24 @@ body.english h3.en {
 
         <div class="card">
 
-            <h3>📊 Image Analysis</h3>
+            <h3>
+                📊 Image Analysis
+            </h3>
+
 
             <p class="ja">
-                植物画像のセグメンテーション、面積推定、
-                色解析、特徴量抽出。
+
+                植物画像のセグメンテーション、
+                面積推定、色解析、特徴量抽出。
+
             </p>
 
+
             <p class="en">
+
                 Segmentation, area estimation, color analysis,
                 and feature extraction from plant images.
+
             </p>
 
         </div>
@@ -932,34 +1151,49 @@ body.english h3.en {
 
 <!-- ================= PUBLICATIONS ================= -->
 
-<section id="publications" class="tab-content">
+<section
+    id="publications"
+    class="tab-content">
+
 
     <h2 class="section-title ja">
-        Publications
+        論文・発表
     </h2>
+
 
     <h2 class="section-title en">
         Publications
     </h2>
 
+
     <p class="section-description ja">
+
         主な研究論文・発表
+
     </p>
+
 
     <p class="section-description en">
+
         Selected publications and presentations
+
     </p>
 
 
     <div class="publication">
 
         <div class="publication-title">
+
             Identifying Growth Rate Factors of Lemna minor Without Image
+
         </div>
 
+
         <div class="publication-meta">
+
             Moeri Okuda · IEEE International Conference on
             Future Machine Learning and Data Science · 2026
+
         </div>
 
     </div>
@@ -968,13 +1202,18 @@ body.english h3.en {
     <div class="publication">
 
         <div class="publication-title">
+
             Evaluation of Growth Conditions in Lemna minor
             using Chlorophyll Fluorescence Analysis
+
         </div>
 
+
         <div class="publication-meta">
+
             Moeri Okuda, Ryogo Taniguchi, Shinsaku Hiura ·
             IEVC2026 · 2026
+
         </div>
 
     </div>
@@ -983,12 +1222,18 @@ body.english h3.en {
     <div class="publication">
 
         <div class="publication-title">
+
             Age Prediction of Komatsuna using Hu Moments
             with Neural Networks for Small Datasets
+
         </div>
 
+
         <div class="publication-meta">
-            Moeri Okuda, Shinsaku Hiura · SNL2025 · 2025
+
+            Moeri Okuda, Shinsaku Hiura ·
+            SNL2025 · 2025
+
         </div>
 
     </div>
@@ -997,11 +1242,17 @@ body.english h3.en {
     <div class="publication">
 
         <div class="publication-title">
-            クロロフィル蛍光画像を用いたコウキクサの成長要因の分析
+
+            クロロフィル蛍光画像を用いた
+            コウキクサの成長要因の分析
+
         </div>
 
+
         <div class="publication-meta">
+
             奥田萌莉, 谷口諒伍, 日浦慎作 · MIRU2025
+
         </div>
 
     </div>
@@ -1010,22 +1261,28 @@ body.english h3.en {
     <div class="publication">
 
         <div class="publication-title">
-            深層学習による植物画像の専門家的知見を用いた特徴表現の拡張
+
+            深層学習による植物画像の専門家的知見を用いた
+            特徴表現の拡張
+
         </div>
 
+
         <div class="publication-meta">
+
             奥田萌莉, 日浦慎作 · 定量生物学の会 · 2025
+
         </div>
 
     </div>
 
 
     <a
-        href="https://cv01.ufinity.jp/u_hyogo/cvclients/researchers/moeriokuda"
+        href="https://www.bdr.riken.jp/ja/research/labs/ozaki-h/index.html"
         target="_blank"
         class="button">
 
-        View Full Publication List →
+        RIKEN Research Lab →
 
     </a>
 
@@ -1034,106 +1291,106 @@ body.english h3.en {
 
 <!-- ================= PROFILES ================= -->
 
-<section id="profiles" class="tab-content">
+<section
+    id="profiles"
+    class="tab-content">
+
 
     <h2 class="section-title">
-        Online Profiles
+
+        <span class="ja">
+            プロフィール
+        </span>
+
+        <span class="en">
+            Profiles
+        </span>
+
     </h2>
 
+
     <p class="section-description ja">
+
         研究・プロフェッショナルプロフィール
+
     </p>
 
+
     <p class="section-description en">
+
         Research and professional profiles
+
     </p>
 
 
     <div class="grid">
+
 
         <a
             href="https://github.com/"
             target="_blank"
             class="card profile-link">
 
+
             <div class="profile-icon">
                 ◉
             </div>
 
-            <h3>GitHub</h3>
+
+            <h3>
+                GitHub
+            </h3>
+
 
             <p>
                 GitHub
             </p>
 
+
             <p class="note ja">
-                本人のアカウントURLを確実に確認できていないため、
-                GitHubトップページへのリンクです。
+
+                GitHubプロフィール
+
             </p>
 
+
             <p class="note en">
-                The author's personal GitHub account could not
-                be reliably verified, so this links to GitHub.
+
+                GitHub profile
+
             </p>
 
         </a>
 
-
-    </div>
-
-</section>
-
-
-<!-- ================= LINKS ================= -->
-
-<section id="links" class="tab-content">
-
-    <h2 class="section-title">
-        Links
-    </h2>
-
-    <p class="section-description ja">
-        公式・研究関連リンク
-    </p>
-
-    <p class="section-description en">
-        Official and research-related resources
-    </p>
-
-
-    <div class="grid">
 
         <a
             href="https://www.bdr.riken.jp/ja/research/labs/ozaki-h/index.html"
             target="_blank"
             class="card profile-link">
 
+
+            <div class="profile-icon">
+                🧬
+            </div>
+
+
             <h3>
-                RIKEN CV
+                RIKEN
             </h3>
+
 
             <p class="ja">
-                AI生物学研究チーム
+
+                理化学研究所
+                研究室ページ
+
             </p>
+
 
             <p class="en">
-                RIKEN Researcher Information
-            </p>
 
-        </a>
+                RIKEN Research Laboratory
 
-
-        <a
-            href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202301004235987922"
-            target="_blank"
-            class="card profile-link">
-
-            <h3>
-                J-GLOBAL
-            </h3>
-
-            <p>
-                Japan Science and Technology Agency
             </p>
 
         </a>
@@ -1144,15 +1401,55 @@ body.english h3.en {
             target="_blank"
             class="card profile-link">
 
+
+            <div class="profile-icon">
+                iD
+            </div>
+
+
             <h3>
                 ORCID
             </h3>
+
 
             <p>
                 0009-0000-7856-7830
             </p>
 
         </a>
+
+
+        <a
+            href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202301004235987922"
+            target="_blank"
+            class="card profile-link">
+
+
+            <div class="profile-icon">
+                J
+            </div>
+
+
+            <h3>
+                J-GLOBAL
+            </h3>
+
+
+            <p class="ja">
+
+                科学技術振興機構
+
+            </p>
+
+
+            <p class="en">
+
+                Japan Science and Technology Agency
+
+            </p>
+
+        </a>
+
 
     </div>
 
@@ -1169,8 +1466,11 @@ body.english h3.en {
         © Moeri Okuda — Research Portfolio
     </p>
 
+
     <p style="margin-top:5px;">
+
         Computer Vision · AI · Plant Science
+
     </p>
 
 </footer>
@@ -1187,16 +1487,22 @@ function openTab(tabId, button) {
     const contents =
         document.querySelectorAll(".tab-content");
 
+
     contents.forEach(function(content) {
+
         content.classList.remove("active");
+
     });
 
 
     const buttons =
         document.querySelectorAll(".tab-button");
 
+
     buttons.forEach(function(btn) {
+
         btn.classList.remove("active");
+
     });
 
 
@@ -1207,10 +1513,15 @@ function openTab(tabId, button) {
 
     button.classList.add("active");
 
+
     window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
     });
+
 }
 
 
@@ -1220,20 +1531,30 @@ function toggleLanguage() {
 
     document.body.classList.toggle("english");
 
+
     const button =
         document.getElementById("languageButton");
 
-    if (document.body.classList.contains("english")) {
 
-        button.textContent = "日本語 / EN";
+    if (
+        document.body.classList.contains("english")
+    ) {
 
-        document.documentElement.lang = "en";
+        button.textContent =
+            "日本語 / EN";
+
+
+        document.documentElement.lang =
+            "en";
 
     } else {
 
-        button.textContent = "EN / 日本語";
+        button.textContent =
+            "EN / 日本語";
 
-        document.documentElement.lang = "ja";
+
+        document.documentElement.lang =
+            "ja";
 
     }
 
