@@ -24,18 +24,19 @@ body {
         BlinkMacSystemFont,
         "Segoe UI",
         "Noto Sans JP",
+        "Noto Sans",
         sans-serif;
     background: #f7f8fa;
     color: #1f2937;
     line-height: 1.8;
 }
 
-/* ===== Header ===== */
+/* ================= HEADER ================= */
 
 header {
     background: #111827;
     color: white;
-    padding: 70px 20px 55px;
+    padding: 75px 20px 60px;
 }
 
 .header-inner {
@@ -45,25 +46,31 @@ header {
 
 .eyebrow {
     color: #9ca3af;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 h1 {
-    font-size: clamp(42px, 7vw, 72px);
-    line-height: 1.1;
+    font-size: clamp(44px, 8vw, 76px);
+    line-height: 1.05;
     font-weight: 700;
 }
 
-.subtitle {
-    margin-top: 18px;
+.subtitle-ja {
+    margin-top: 15px;
     color: #d1d5db;
-    font-size: 18px;
+    font-size: 20px;
+}
+
+.subtitle-en {
+    margin-top: 4px;
+    color: #9ca3af;
+    font-size: 17px;
 }
 
 .header-links {
-    margin-top: 28px;
+    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -84,7 +91,30 @@ h1 {
     color: #111827;
 }
 
-/* ===== Navigation ===== */
+/* ================= LANGUAGE ================= */
+
+.language-switch {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+.language-switch button {
+    border: 1px solid #6b7280;
+    background: transparent;
+    color: white;
+    padding: 7px 13px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.language-switch button:hover {
+    background: white;
+    color: #111827;
+}
+
+/* ================= NAVIGATION ================= */
 
 nav {
     position: sticky;
@@ -123,7 +153,7 @@ nav {
     border-bottom-color: #111827;
 }
 
-/* ===== Main ===== */
+/* ================= MAIN ================= */
 
 main {
     max-width: 1100px;
@@ -152,7 +182,7 @@ main {
 }
 
 .section-title {
-    font-size: 32px;
+    font-size: 34px;
     margin-bottom: 10px;
     color: #111827;
 }
@@ -162,7 +192,7 @@ main {
     margin-bottom: 35px;
 }
 
-/* ===== Cards ===== */
+/* ================= CARDS ================= */
 
 .grid {
     display: grid;
@@ -174,7 +204,7 @@ main {
     background: white;
     border: 1px solid #e5e7eb;
     border-radius: 16px;
-    padding: 25px;
+    padding: 27px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.03);
 }
 
@@ -192,11 +222,7 @@ main {
     text-decoration: none;
 }
 
-.card a:hover {
-    text-decoration: underline;
-}
-
-/* ===== Profile ===== */
+/* ================= PROFILE ================= */
 
 .profile {
     display: grid;
@@ -226,11 +252,11 @@ main {
 
 .info-list strong {
     display: inline-block;
-    width: 130px;
+    width: 140px;
     color: #111827;
 }
 
-/* ===== Timeline ===== */
+/* ================= TIMELINE ================= */
 
 .timeline {
     border-left: 2px solid #d1d5db;
@@ -266,7 +292,7 @@ main {
     margin-top: 3px;
 }
 
-/* ===== Research tags ===== */
+/* ================= TAGS ================= */
 
 .tags {
     display: flex;
@@ -283,15 +309,37 @@ main {
     font-size: 13px;
 }
 
-/* ===== Publications ===== */
+/* ================= BUTTON ================= */
 
-.publication {
-    padding: 20px 0;
-    border-bottom: 1px solid #e5e7eb;
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 11px 18px;
+    border-radius: 9px;
+    background: #111827;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
 }
 
-.publication:last-child {
-    border-bottom: none;
+.button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.button.secondary {
+    background: white;
+    color: #111827;
+    border: 1px solid #d1d5db;
+    margin-left: 8px;
+}
+
+/* ================= PUBLICATIONS ================= */
+
+.publication {
+    padding: 21px 0;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .publication-title {
@@ -305,7 +353,7 @@ main {
     font-size: 14px;
 }
 
-/* ===== External profiles ===== */
+/* ================= EXTERNAL PROFILES ================= */
 
 .profile-link {
     display: block;
@@ -319,7 +367,7 @@ main {
 }
 
 .profile-icon {
-    font-size: 32px;
+    font-size: 30px;
     margin-bottom: 10px;
 }
 
@@ -327,7 +375,13 @@ main {
     color: #111827;
 }
 
-/* ===== Footer ===== */
+.note {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+/* ================= FOOTER ================= */
 
 footer {
     background: #111827;
@@ -337,12 +391,18 @@ footer {
     font-size: 13px;
 }
 
-/* ===== Mobile ===== */
+/* ================= MOBILE ================= */
 
 @media (max-width: 700px) {
 
     header {
-        padding: 50px 20px 40px;
+        padding: 55px 20px 45px;
+    }
+
+    .language-switch {
+        position: static;
+        margin-bottom: 35px;
+        text-align: right;
     }
 
     .grid,
@@ -366,6 +426,31 @@ footer {
         display: block;
         width: auto;
     }
+
+    .button.secondary {
+        margin-left: 0;
+    }
+}
+
+/* ================= LANGUAGE VISIBILITY ================= */
+
+.en {
+    display: none;
+}
+
+body.english .ja {
+    display: none;
+}
+
+body.english .en {
+    display: inline;
+}
+
+body.english div.en,
+body.english p.en,
+body.english h2.en,
+body.english h3.en {
+    display: block;
 }
 </style>
 </head>
@@ -376,7 +461,14 @@ footer {
 <!-- ================= HEADER ================= -->
 
 <header>
+
     <div class="header-inner">
+
+        <div class="language-switch">
+            <button onclick="toggleLanguage()" id="languageButton">
+                EN / 日本語
+            </button>
+        </div>
 
         <div class="eyebrow">
             RESEARCHER / COMPUTER VISION / AI × BIOLOGY
@@ -384,20 +476,31 @@ footer {
 
         <h1>Moeri Okuda</h1>
 
-        <div class="subtitle">
+        <div class="subtitle-ja ja">
             奥田 萌莉
         </div>
 
-        <p class="subtitle">
+        <div class="subtitle-en en">
+            Moeri Okuda
+        </div>
+
+        <div class="subtitle-ja ja">
             Researcher in Computer Vision and AI for Plant Science
-        </p>
+        </div>
+
+        <div class="subtitle-en en">
+            Researcher in Computer Vision and AI for Plant Science
+        </div>
 
         <div class="header-links">
-            <a href="https://www.moeriokuda.com/" target="_blank">
-                Personal Website
+
+            <a href="https://www.moeriokuda.com/"
+               target="_blank">
+                Website
             </a>
 
-            <a href="https://orcid.org/0009-0000-7856-7830" target="_blank">
+            <a href="https://orcid.org/0009-0000-7856-7830"
+               target="_blank">
                 ORCID
             </a>
 
@@ -405,46 +508,80 @@ footer {
                target="_blank">
                 J-GLOBAL
             </a>
+
         </div>
 
     </div>
+
 </header>
 
 
 <!-- ================= NAVIGATION ================= -->
 
 <nav>
+
     <div class="nav-inner">
 
-        <button class="tab-button active" onclick="openTab('about', this)">
-            About
+        <button class="tab-button active"
+                onclick="openTab('about', this)">
+
+            <span class="ja">About</span>
+            <span class="en">About</span>
+
         </button>
 
-        <button class="tab-button" onclick="openTab('cv', this)">
-            CV
+
+        <button class="tab-button"
+                onclick="openTab('cv', this)">
+
+            <span class="ja">CV</span>
+            <span class="en">CV</span>
+
         </button>
 
-        <button class="tab-button" onclick="openTab('research', this)">
-            Research
+
+        <button class="tab-button"
+                onclick="openTab('research', this)">
+
+            <span class="ja">研究</span>
+            <span class="en">Research</span>
+
         </button>
 
-        <button class="tab-button" onclick="openTab('publications', this)">
-            Publications
+
+        <button class="tab-button"
+                onclick="openTab('publications', this)">
+
+            <span class="ja">論文・発表</span>
+            <span class="en">Publications</span>
+
         </button>
 
-        <button class="tab-button" onclick="openTab('profiles', this)">
-            GitHub / LinkedIn
+
+        <button class="tab-button"
+                onclick="openTab('profiles', this)">
+
+            <span class="ja">Profiles</span>
+            <span class="en">Profiles</span>
+
         </button>
 
-        <button class="tab-button" onclick="openTab('links', this)">
-            Links
+
+        <button class="tab-button"
+                onclick="openTab('links', this)">
+
+            <span class="ja">Links</span>
+            <span class="en">Links</span>
+
         </button>
 
     </div>
+
 </nav>
 
 
 <main>
+
 
 <!-- ================= ABOUT ================= -->
 
@@ -453,33 +590,60 @@ footer {
     <div class="profile">
 
         <div>
-            <h2>About</h2>
 
-            <p class="profile-lead">
+            <h2 class="ja">About</h2>
+            <h2 class="en">About</h2>
+
+            <p class="profile-lead ja">
                 奥田萌莉（Moeri Okuda）は、コンピュータビジョンと
                 AIを植物科学へ応用する研究者です。
             </p>
 
-            <p style="margin-top:20px;">
+            <p class="profile-lead en">
+                Moeri Okuda is a researcher working at the intersection
+                of computer vision, artificial intelligence, and plant science.
+            </p>
+
+
+            <p class="ja" style="margin-top:20px;">
                 特に植物画像の解析、成長率推定、特徴表現、
                 機械学習を用いた植物の専門家的判断の自動化などを
                 研究しています。
             </p>
 
+            <p class="en" style="margin-top:20px;">
+                Her research focuses on plant image analysis,
+                growth-rate estimation, visual representation,
+                and the automation of expert biological judgments
+                using machine learning.
+            </p>
+
+
             <div class="tags">
+
                 <span class="tag">Computer Vision</span>
                 <span class="tag">AI</span>
                 <span class="tag">Plant Science</span>
                 <span class="tag">Image Analysis</span>
                 <span class="tag">Representation Learning</span>
+
             </div>
+
         </div>
+
 
         <div class="card">
 
-            <h3>Current Position</h3>
+            <h3 class="ja">現在の所属</h3>
+            <h3 class="en">Current Position</h3>
 
-            <p>
+            <p class="ja">
+                理化学研究所<br>
+                生命機能科学研究センター<br>
+                AI生物学研究チーム
+            </p>
+
+            <p class="en">
                 RIKEN<br>
                 Center for Life Science Technologies<br>
                 AI Biology Research Team
@@ -487,11 +651,13 @@ footer {
 
             <br>
 
-            <h3>Research Field</h3>
+            <h3 class="ja">研究分野</h3>
+            <h3 class="en">Research Field</h3>
 
             <p>
-                Information and Communication /
-                Perceptual Information Processing
+                Computer Vision<br>
+                Artificial Intelligence<br>
+                Plant Science
             </p>
 
         </div>
@@ -505,82 +671,201 @@ footer {
 
 <section id="cv" class="tab-content">
 
-    <h2 class="section-title">Curriculum Vitae</h2>
+    <h2 class="section-title">CV</h2>
 
-    <p class="section-description">
-        Academic background and career
+    <p class="section-description ja">
+        学歴・職歴
     </p>
 
-    <div class="timeline">
+    <p class="section-description en">
+        Academic and professional background
+    </p>
+
+
+    <!-- PDF DOWNLOAD -->
+
+    <div class="card">
+
+        <h3 class="ja">
+            Curriculum Vitae
+        </h3>
+
+        <h3 class="en">
+            Curriculum Vitae
+        </h3>
+
+        <p class="ja">
+            詳細な経歴はPDF版CVをご覧ください。
+        </p>
+
+        <p class="en">
+            Please see the PDF version of the CV for detailed information.
+        </p>
+
+        <a href="cv.pdf"
+           class="button"
+           download>
+
+            ↓ Download CV (PDF)
+
+        </a>
+
+        <a href="cv.pdf"
+           class="button secondary"
+           target="_blank">
+
+            View PDF
+
+        </a>
+
+        <p class="note ja">
+            ※ GitHubリポジトリのルートに「cv.pdf」という名前で
+            PDFファイルをアップロードしてください。
+        </p>
+
+        <p class="note en">
+            ※ Upload your CV PDF to the root of this GitHub repository
+            with the filename "cv.pdf".
+        </p>
+
+    </div>
+
+
+    <div class="timeline" style="margin-top:45px;">
 
         <div class="timeline-item">
-            <div class="timeline-year">2026 – Present</div>
-            <div class="timeline-title">
+
+            <div class="timeline-year">
+                2026 – Present
+            </div>
+
+            <div class="timeline-title ja">
+                理化学研究所 — 特別研究員
+            </div>
+
+            <div class="timeline-title en">
                 RIKEN — Special Researcher
             </div>
-            <p>
-                Center for Life Science Technologies,
+
+            <p class="ja">
+                生命機能科学研究センター<br>
+                AI生物学研究チーム
+            </p>
+
+            <p class="en">
+                Center for Life Science Technologies<br>
                 AI Biology Research Team
             </p>
+
         </div>
 
+
         <div class="timeline-item">
-            <div class="timeline-year">2024 – 2026</div>
-            <div class="timeline-title">
-                University of Hyogo — Assistant Professor
+
+            <div class="timeline-year">
+                2024 – 2026
             </div>
-            <p>
-                Graduate School of Engineering /
-                Faculty of Engineering
+
+            <div class="timeline-title ja">
+                兵庫県立大学
+            </div>
+
+            <div class="timeline-title en">
+                University of Hyogo
+            </div>
+
+            <p class="ja">
+                助教
             </p>
+
+            <p class="en">
+                Assistant Professor
+            </p>
+
         </div>
 
+
         <div class="timeline-item">
-            <div class="timeline-year">2023 – 2026</div>
-            <div class="timeline-title">
+
+            <div class="timeline-year">
+                2023 – 2026
+            </div>
+
+            <div class="timeline-title ja">
+                兵庫県立大学 — 博士課程
+            </div>
+
+            <div class="timeline-title en">
                 University of Hyogo — Ph.D.
             </div>
-            <p>
-                Doctor of Information Science
+
+            <p class="ja">
+                情報科学
             </p>
+
+            <p class="en">
+                Information Science
+            </p>
+
         </div>
 
+
         <div class="timeline-item">
-            <div class="timeline-year">2021 – 2023</div>
-            <div class="timeline-title">
+
+            <div class="timeline-year">
+                2021 – 2023
+            </div>
+
+            <div class="timeline-title ja">
+                兵庫県立大学 — 修士課程
+            </div>
+
+            <div class="timeline-title en">
                 University of Hyogo — Master's Degree
             </div>
-            <p>
-                Master of Information Science
+
+            <p class="ja">
+                情報科学
             </p>
+
+            <p class="en">
+                Information Science
+            </p>
+
         </div>
 
+
         <div class="timeline-item">
-            <div class="timeline-year">2017 – 2021</div>
+
+            <div class="timeline-year">
+                2017 – 2021
+            </div>
+
             <div class="timeline-title">
                 Kobe College
             </div>
-            <p>
-                B.S. in Human Sciences
+
+            <p class="ja">
+                人間科学
             </p>
+
+            <p class="en">
+                Human Sciences
+            </p>
+
         </div>
 
     </div>
 
-    <div style="margin-top:40px;">
 
-        <a
-            href="https://cv01.ufinity.jp/u_hyogo/cvclients/researchers/moeriokuda"
-            target="_blank"
-            class="card profile-link"
-        >
-            <h3>Official CV / Researcher Information →</h3>
-            <p>
-                University of Hyogo Researcher Information
-            </p>
-        </a>
+    <a
+        href="https://cv01.ufinity.jp/u_hyogo/cvclients/researchers/moeriokuda"
+        target="_blank"
+        class="button">
 
-    </div>
+        Official Researcher CV →
+
+    </a>
 
 </section>
 
@@ -589,47 +874,87 @@ footer {
 
 <section id="research" class="tab-content">
 
-    <h2 class="section-title">Research</h2>
+    <h2 class="section-title ja">
+        Research
+    </h2>
 
-    <p class="section-description">
-        AI, computer vision and plant science
+    <h2 class="section-title en">
+        Research
+    </h2>
+
+    <p class="section-description ja">
+        AI・コンピュータビジョン・植物科学
     </p>
+
+    <p class="section-description en">
+        AI, computer vision, and plant science
+    </p>
+
 
     <div class="grid">
 
         <div class="card">
+
             <h3>🌱 Plant Growth Analysis</h3>
-            <p>
-                Image analysis and machine learning
-                for estimating the growth rate of plants,
-                including Lemna minor.
+
+            <p class="ja">
+                植物画像と機械学習を用いた植物の成長率分析。
             </p>
+
+            <p class="en">
+                Analysis of plant growth using images
+                and machine learning.
+            </p>
+
         </div>
 
+
         <div class="card">
+
             <h3>👁 Computer Vision</h3>
-            <p>
-                Visual feature representation and
-                image-based analysis for biological
-                applications.
+
+            <p class="ja">
+                コンピュータビジョンによる画像特徴の抽出・解析。
             </p>
+
+            <p class="en">
+                Image feature extraction and analysis
+                using computer vision.
+            </p>
+
         </div>
 
+
         <div class="card">
+
             <h3>🧠 AI × Biology</h3>
-            <p>
-                Automating expert-level biological
-                judgments using artificial intelligence.
+
+            <p class="ja">
+                AIを用いた生物学的な専門知識・判断の自動化。
             </p>
+
+            <p class="en">
+                Automating expert biological knowledge
+                and judgments using AI.
+            </p>
+
         </div>
 
+
         <div class="card">
+
             <h3>📊 Image Analysis</h3>
-            <p>
-                Segmentation, area estimation,
-                color analysis and feature extraction
-                from plant images.
+
+            <p class="ja">
+                植物画像のセグメンテーション、面積推定、
+                色解析、特徴量抽出。
             </p>
+
+            <p class="en">
+                Segmentation, area estimation, color analysis,
+                and feature extraction from plant images.
+            </p>
+
         </div>
 
     </div>
@@ -641,10 +966,20 @@ footer {
 
 <section id="publications" class="tab-content">
 
-    <h2 class="section-title">Selected Publications</h2>
+    <h2 class="section-title ja">
+        Publications
+    </h2>
 
-    <p class="section-description">
-        Selected research publications and presentations
+    <h2 class="section-title en">
+        Publications
+    </h2>
+
+    <p class="section-description ja">
+        主な研究論文・発表
+    </p>
+
+    <p class="section-description en">
+        Selected publications and presentations
     </p>
 
 
@@ -717,25 +1052,19 @@ footer {
     </div>
 
 
-    <div style="margin-top:35px;">
+    <a
+        href="https://cv01.ufinity.jp/u_hyogo/cvclients/researchers/moeriokuda"
+        target="_blank"
+        class="button">
 
-        <a
-            href="https://cv01.ufinity.jp/u_hyogo/cvclients/researchers/moeriokuda"
-            target="_blank"
-            class="card profile-link"
-        >
-            <h3>View full publication list →</h3>
-            <p>
-                University of Hyogo Researcher Information
-            </p>
-        </a>
+        View Full Publication List →
 
-    </div>
+    </a>
 
 </section>
 
 
-<!-- ================= GITHUB / LINKEDIN ================= -->
+<!-- ================= PROFILES ================= -->
 
 <section id="profiles" class="tab-content">
 
@@ -743,8 +1072,12 @@ footer {
         Online Profiles
     </h2>
 
-    <p class="section-description">
-        External research and professional profiles
+    <p class="section-description ja">
+        研究・プロフェッショナルプロフィール
+    </p>
+
+    <p class="section-description en">
+        Research and professional profiles
     </p>
 
 
@@ -753,60 +1086,92 @@ footer {
         <a
             href="https://github.com/"
             target="_blank"
-            class="card profile-link"
-        >
-            <div class="profile-icon">◉</div>
+            class="card profile-link">
+
+            <div class="profile-icon">
+                ◉
+            </div>
+
             <h3>GitHub</h3>
+
             <p>
-                GitHub profile
+                GitHub
             </p>
-            <small>
-                ※本人のアカウントURLは公開情報から確実に特定できないため、
-                現在はGitHubトップへのリンクにしています。
-            </small>
+
+            <p class="note ja">
+                本人のアカウントURLを確実に確認できていないため、
+                GitHubトップページへのリンクです。
+            </p>
+
+            <p class="note en">
+                The author's personal GitHub account could not
+                be reliably verified, so this links to GitHub.
+            </p>
+
         </a>
 
 
         <a
             href="https://www.linkedin.com/"
             target="_blank"
-            class="card profile-link"
-        >
-            <div class="profile-icon">in</div>
+            class="card profile-link">
+
+            <div class="profile-icon">
+                in
+            </div>
+
             <h3>LinkedIn</h3>
+
             <p>
-                LinkedIn profile
+                LinkedIn
             </p>
-            <small>
-                ※本人と確実に確認できるプロフィールURLは
-                検索で確認できませんでした。
-            </small>
+
+            <p class="note ja">
+                本人と確認できるプロフィールURLは
+                現時点では確認できていません。
+            </p>
+
+            <p class="note en">
+                A LinkedIn profile that could be reliably
+                verified as the author's was not found.
+            </p>
+
         </a>
 
 
         <a
             href="https://orcid.org/0009-0000-7856-7830"
             target="_blank"
-            class="card profile-link"
-        >
-            <div class="profile-icon">iD</div>
+            class="card profile-link">
+
+            <div class="profile-icon">
+                iD
+            </div>
+
             <h3>ORCID</h3>
+
             <p>
                 0009-0000-7856-7830
             </p>
+
         </a>
 
 
         <a
             href="https://www.moeriokuda.com/"
             target="_blank"
-            class="card profile-link"
-        >
-            <div class="profile-icon">🌐</div>
+            class="card profile-link">
+
+            <div class="profile-icon">
+                🌐
+            </div>
+
             <h3>Personal Website</h3>
+
             <p>
                 moeriokuda.com
             </p>
+
         </a>
 
     </div>
@@ -822,7 +1187,11 @@ footer {
         Links
     </h2>
 
-    <p class="section-description">
+    <p class="section-description ja">
+        公式・研究関連リンク
+    </p>
+
+    <p class="section-description en">
         Official and research-related resources
     </p>
 
@@ -832,48 +1201,68 @@ footer {
         <a
             href="https://cv01.ufinity.jp/u_hyogo/cvclients/researchers/moeriokuda"
             target="_blank"
-            class="card profile-link"
-        >
-            <h3>University of Hyogo CV</h3>
-            <p>
-                Official researcher information and CV
+            class="card profile-link">
+
+            <h3>
+                University of Hyogo CV
+            </h3>
+
+            <p class="ja">
+                兵庫県立大学 研究者情報
             </p>
+
+            <p class="en">
+                University of Hyogo Researcher Information
+            </p>
+
         </a>
 
 
         <a
             href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202301004235987922"
             target="_blank"
-            class="card profile-link"
-        >
-            <h3>J-GLOBAL</h3>
+            class="card profile-link">
+
+            <h3>
+                J-GLOBAL
+            </h3>
+
             <p>
                 Japan Science and Technology Agency
             </p>
+
         </a>
 
 
         <a
             href="https://orcid.org/0009-0000-7856-7830"
             target="_blank"
-            class="card profile-link"
-        >
-            <h3>ORCID</h3>
+            class="card profile-link">
+
+            <h3>
+                ORCID
+            </h3>
+
             <p>
-                Researcher identifier
+                0009-0000-7856-7830
             </p>
+
         </a>
 
 
         <a
             href="https://www.moeriokuda.com/"
             target="_blank"
-            class="card profile-link"
-        >
-            <h3>Official Website</h3>
+            class="card profile-link">
+
+            <h3>
+                Personal Website
+            </h3>
+
             <p>
                 moeriokuda.com
             </p>
+
         </a>
 
     </div>
@@ -886,6 +1275,7 @@ footer {
 <!-- ================= FOOTER ================= -->
 
 <footer>
+
     <p>
         © Moeri Okuda — Research Portfolio
     </p>
@@ -893,6 +1283,7 @@ footer {
     <p style="margin-top:5px;">
         Computer Vision · AI · Plant Science
     </p>
+
 </footer>
 
 
@@ -900,36 +1291,63 @@ footer {
 
 <script>
 
+/* ================= TAB ================= */
+
 function openTab(tabId, button) {
 
-    // Hide all contents
-    const contents = document.querySelectorAll(".tab-content");
+    const contents =
+        document.querySelectorAll(".tab-content");
 
     contents.forEach(function(content) {
         content.classList.remove("active");
     });
 
 
-    // Remove active from all buttons
-    const buttons = document.querySelectorAll(".tab-button");
+    const buttons =
+        document.querySelectorAll(".tab-button");
 
     buttons.forEach(function(btn) {
         btn.classList.remove("active");
     });
 
 
-    // Show selected content
-    document.getElementById(tabId).classList.add("active");
+    document
+        .getElementById(tabId)
+        .classList.add("active");
 
-    // Activate selected button
+
     button.classList.add("active");
 
-
-    // Scroll to top of main area
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+}
+
+
+/* ================= LANGUAGE ================= */
+
+function toggleLanguage() {
+
+    document.body.classList.toggle("english");
+
+    const button =
+        document.getElementById("languageButton");
+
+    if (document.body.classList.contains("english")) {
+
+        button.textContent = "日本語 / EN";
+
+        document.documentElement.lang = "en";
+
+    } else {
+
+        button.textContent = "EN / 日本語";
+
+        document.documentElement.lang = "ja";
+
+    }
+
 }
 
 </script>
